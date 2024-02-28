@@ -7,8 +7,8 @@ import instagram_logo from "../../assets/instagram_logo.jpg"
 
 // import "./SignOrLogIn.css";
 
-function NicknameInput({itIsLogIn, toggleStatus}) {
-  console.log(itIsLogIn)
+function NicknameInput({itIsSing, toggleStatus}) {
+  // console.log(itIsSing)
   function emptyEmail() {
     
   }
@@ -23,9 +23,8 @@ function NicknameInput({itIsLogIn, toggleStatus}) {
 
   function checkEmail(event) {
     let email = event.target 
-    email.value == "" ? emptyEmail() : 
-    email.value.includes("@") ? passEmail() : wrongEmail()
-    // email.value == "" && email.value.includes("@") ? passEmail : wrongEmail
+    email.value == "" ? emptyEmail(email) : 
+      email.value.includes("@") ? passEmail(email) : wrongEmail(email)
   }
   return (
     <div className='dateInput'>
@@ -33,10 +32,10 @@ function NicknameInput({itIsLogIn, toggleStatus}) {
         <label>Email</label>
         <span>
           Already have an account?
-          <button onClick={toggleStatus}>{itIsLogIn ? "sing in" : "log in"}</button>
+          <button type='button' onClick={toggleStatus}>{itIsSing ? "sign in" : "log in"}</button>
         </span>
       </div>
-      <input type="text" id="nicknameInput" onBlur={checkEmail} placeholder="Oscar@gmail.com"/>
+      <input type="email" name='gmail' id="nicknameInput" onBlur={checkEmail} placeholder="Oscar@gmail.com"/>
     </div>
   )
 }
@@ -72,7 +71,7 @@ function PasswordInput() {
           </button>
         </span>
       </div>
-      <input type={status} className="dateInput" placeholder="Create password"/>
+      <input type={status} name='password' className="dateInput" maxLength={15} placeholder="Create password"/>
     </div>
   )
 }
@@ -83,26 +82,26 @@ function ConfirmPassword() {
       <div className='label confirm'>
         <label>Confirm password</label>
       </div>
-      <input type="text" id="nicknameInput" placeholder="Oscar@gmail.com"/>
+      <input type="text" name='confirmPassword' id="nicknameInput" placeholder="Oscar@gmail.com"/>
     </div>
   )
 }
   
-function LogIn_SingIn({itIsLogIn, toggleStatus}) {
+function LogIn_SingIn({itIsSing, toggleStatus}) {
   return (
     <div className='inputs'> 
-      <h2>{itIsLogIn ? "Log in" : "Sing in"}</h2>
+      <h2>{itIsSing ? "Log in" : "Sign in"}</h2>
       <NicknameInput toggleStatus = {toggleStatus}/>
       <PasswordInput />
-      {!itIsLogIn && <ConfirmPassword />}
+      {!itIsSing && <ConfirmPassword />}
     </div>        
   ) 
 }
 
-function Question({children}){
+function Question({children, checkBoxName}){
   return (
       <label className='question'>
-        <input type='checkbox'/>
+        <input type='checkbox' name={checkBoxName}/>
         <h3>{children}</h3>
       </label>
   )
@@ -111,8 +110,8 @@ function Question({children}){
 function Anceta() {
   return (
     <div className='anceta'>
-    <Question>accept send spam to email</Question>
-    <Question>download virus</Question>
+    <Question checkBoxName={"spam"}>accept send spam to email</Question>
+    <Question checkBoxName={"virus"}>download virus</Question>
     </div>
     
   )
@@ -142,11 +141,13 @@ function SocialMedia({src_logo, clickHandler}) {
   )
 }
 
-function Submit({itIsLogIn}) {
+function Submit({itIsSing}) {
+
+
   return (
-    <div className='forgot_extraInfo'>
+    <div className='typeOfSubmit'>
       <div className='confirmLogIn'>
-        <button className='submit'>TTT</button>
+        <input type='submit' name= "submit" className='submit' />
         <div className='soicalMedia'>
           <label>enter with help social</label>
           <div>
@@ -156,28 +157,61 @@ function Submit({itIsLogIn}) {
           </div>
         </div>
       </div>
-      <h4>{itIsLogIn ? "Forgot password?": "Accept our conference"}</h4>
+      <button className='forgot'>{itIsSing ? "Forgot password?": "Accept our conference"}</button>
     </div> 
   )
 }
 
 export default function SignOrLogIn() {
-  const [itIsLogIn, toggleFormStatus] = useState(true)
+  let [itIsSing, toggleFormStatus] = useState(true)
+  // console.log(itIsSing)
   function toggleStatus() {
-    toggleFormStatus(itIsLogIn ? false : true)
+    toggleFormStatus(!itIsSing)
+    console.log("isIsSing?:" ,itIsSing)
   }
-  document.body.addEventListener("keydown", (e) => {
-    if(e.key == "g") {
-      toggleStatus()
-      console.log("status:", itIsLogIn)
+
+  function validationData(form) {
+    if(form.password.value != form.confirmPassword.value)  {
+      alert("password not!")
+      return false
     }
-  })
+    
+    return true
+  }
+  // document.getElementById("form")
+  // form.addEventListener("submit", () => {
+
+  // })
+  function sendDate(e) {
+    e.preventDefault()
+    const FORM = e.target
+    if(itIsSing) {
+      fetch("http://localhost:3000/", {
+        method: "POST",
+        body: JSON.stringify({
+          gmail: FORM.gmail.value,
+          password: FORM.password.value,
+        })  
+      })
+    } else if(validationData(FORM)) {
+      fetch("http://localhost:3000/", {
+        method: "POST",
+        body: JSON.stringify({
+          gmail: FORM.gmail.value,
+          password: FORM.password.value,
+          spam: FORM.spam.checked,
+          virus: FORM.virus.checked,
+        })  
+      })
+    }
+  }
+
   return (
-    <form className='logIn'>
-    <LogIn_SingIn itIsLogIn = {itIsLogIn} toggleStatus = {toggleStatus} />
-    {!itIsLogIn && <Captcha /> }
-    {!itIsLogIn && <Anceta /> }
-    <Submit itIsLogIn = {itIsLogIn}/>
+    <form className='logIn' name= "form" onSubmit={sendDate} id = "form">
+      <LogIn_SingIn itIsSing = {itIsSing} toggleStatus = {toggleStatus} />
+      {!itIsSing && <Captcha /> }
+      {!itIsSing && <Anceta /> }
+      <Submit itIsSing = {itIsSing}/>
     </form>
   );
 }
