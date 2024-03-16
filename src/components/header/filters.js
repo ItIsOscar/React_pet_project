@@ -1,8 +1,8 @@
-import "./header.css"
+import "./filters.scss"
 
 import Search from "./search/search"
 
-export default function Header() {
+export default function Filters() {
     return (
         <>
             <Search />

@@ -1,0 +1,148 @@
+.logIn {
+  width: 350px;
+  padding: .5rem 1%;
+  margin-top: 300px;
+  background-color: white;
+  border: 3px black solid;
+  border-radius: 30px;
+  position: absolute;
+  // top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+  
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dateInput {
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px black solid;
+    border-radius: 20px;
+  }
+}
+
+.label {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  
+  label {
+    margin-left: 1rem;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  span {
+    font-size: 14px;
+
+    button {
+      margin-left: .3rem;
+      margin-right: 1.3rem;
+      color: green;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}
+
+.confirm.label {
+  margin-top: .5rem;
+}
+
+.captcha {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 70px);
+    column-gap: .5rem;
+    grid-template-rows: repeat(2, 70px);
+    row-gap: .5rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+
+.question {
+  display: flex;
+  align-items: center;
+}
+
+.typeOfSubmit  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmLogIn {
+  margin-top: 1rem;
+  display: flex;
+  align-items: end;
+}
+
+.submit {
+  width: 170px;
+  height: 100%;
+  padding: .5rem 1rem;
+  margin-right: .5rem;
+  border-radius: 20px;
+  background-color: gray;
+  font-size: 24px;
+}
+
+.soicalMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    display: grid;
+    grid-template-columns: repeat(3, 45px);
+    column-gap: 2%;
+    grid-template-rows: 45px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  button { 
+    border: .5px gray solid;
+    border-radius: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.forgot {
+  margin-top: .5rem;
+}
+
+.membrana {
+  width: 100vw;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+}

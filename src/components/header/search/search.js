@@ -1,4 +1,4 @@
-import "./search.css"
+import "./search.scss"
 import { useEffect, useState } from "react"
 export default function Search() {
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "./SingOrLogIn.css";
+import "./SingOrLogIn.scss";
 
 import { capchaPic } from '../../assets/date';
 import facebook_logo from "../../assets/Facebook_Logo_(2019).png"
@@ -230,11 +230,14 @@ export default function SignOrLogIn() {
   }
 
   return (
-    <form className='logIn' name= "form" onSubmit={sendData} id = "form">
-      <LogIn_SingIn itIsSing = {itIsSing} toggleStatus = {toggleStatus} />
-      {!itIsSing && <Captcha /> }
-      {!itIsSing && <Anceta /> }
-      <Submit itIsSing = {itIsSing}/>
-    </form>
+    <>
+      <div className='membrana'></div>
+      <form className='logIn' name= "form" onSubmit={sendData} id = "form">
+        <LogIn_SingIn itIsSing = {itIsSing} toggleStatus = {toggleStatus} />
+        {!itIsSing && <Captcha /> }
+        {!itIsSing && <Anceta /> }
+        <Submit itIsSing = {itIsSing}/>
+      </form>
+    </>
   );
 }

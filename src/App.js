@@ -1,8 +1,8 @@
-import Header from './components/header/header';
+import Filters from './components/header/filters';
 
 import SignOrLogIn from './components/SingOrLogIn/SingOrLogIn';
-import "./app.sass"
-// import './App.css';
+import "./App.scss"
+
 import Navigation from './components/navigation/navigation';
 
 
@@ -12,9 +12,9 @@ function App() {
     <>
     <Navigation />
     <div className='content'>
-      <Header />
+      <Filters />
     </div>
-    {/* <SignOrLogIn /> */}
+  {/* <SignOrLogIn / */}
     </>
   );
 }

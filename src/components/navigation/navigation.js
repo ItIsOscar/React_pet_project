@@ -1,4 +1,4 @@
-import "./navigation.css"
+import "./navigation.scss"
 
 import heart_border from "../../assets/heart_border.svg"
 import heart_full from "../../assets/heart_full.svg"
