@@ -1,12 +1,21 @@
-import SignOrLogIn from './components/SingOrLogIn/SingOrLogIn';
+import Header from './components/header/header';
 
-import './App.css';
+import SignOrLogIn from './components/SingOrLogIn/SingOrLogIn';
+import "./app.sass"
+// import './App.css';
+import Navigation from './components/navigation/navigation';
 
 
 
 function App() {
   return (
-    <SignOrLogIn />
+    <>
+    <Navigation />
+    <div className='content'>
+      <Header />
+    </div>
+    {/* <SignOrLogIn /> */}
+    </>
   );
 }
 

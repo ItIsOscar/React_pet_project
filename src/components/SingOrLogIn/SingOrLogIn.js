@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import "./SingOrLogIn.css";
 
 import { capchaPic } from '../../assets/date';
 import facebook_logo from "../../assets/Facebook_Logo_(2019).png"
 import google_logo from "../../assets/google_logo.png"
 import instagram_logo from "../../assets/instagram_logo.jpg"
 
-// import "./SignOrLogIn.css";
+  
 
 function NicknameInput({itIsSing, toggleStatus}) {
   // console.log(itIsSing)
@@ -59,7 +60,7 @@ function PasswordInput() {
     status == "password" ? toggleToVisible() : toggleToHide()
     console.log(status, statusText)
   }
-
+  
   return (
     <div className='dateInput'>
       <div className='label'>
@@ -68,7 +69,7 @@ function PasswordInput() {
           {/* <img src='https://w7.pngwing.com/pngs/913/965/png-transparent-black-eye-illustration-eye-drawing-color-eye-people-human-eye-simple-eye-in-invertebrates.png'/> */}
           <button onClick={togglePasswordVisible}>
             {statusText}
-          </button>
+            </button>
         </span>
       </div>
       <input type={status} name='password' className="dateInput" maxLength={15} placeholder="Create password"/>
@@ -142,8 +143,6 @@ function SocialMedia({src_logo, clickHandler}) {
 }
 
 function Submit({itIsSing}) {
-
-
   return (
     <div className='typeOfSubmit'>
       <div className='confirmLogIn'>
@@ -182,32 +181,56 @@ export default function SignOrLogIn() {
   // form.addEventListener("submit", () => {
 
   // })
-  function sendDate(e) {
+  function sendData(e) {
     e.preventDefault()
     const FORM = e.target
-    if(itIsSing) {
-      fetch("http://localhost:3000/", {
-        method: "POST",
-        body: JSON.stringify({
-          gmail: FORM.gmail.value,
-          password: FORM.password.value,
-        })  
-      })
-    } else if(validationData(FORM)) {
-      fetch("http://localhost:3000/", {
-        method: "POST",
-        body: JSON.stringify({
-          gmail: FORM.gmail.value,
-          password: FORM.password.value,
-          spam: FORM.spam.checked,
-          virus: FORM.virus.checked,
-        })  
-      })
-    }
+    // if(itIsSing) {
+    //   fetch("http://localhost:3000/", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       gmail: FORM.gmail.value,
+    //       password: FORM.password.value,
+    //     })  
+    //   })
+    // } else if(validationData(FORM)) {
+    //   fetch("http://localhost:3000/", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       gmail: FORM.gmail.value,
+    //       password: FORM.password.value,
+    //       spam: FORM.spam.checked,
+    //       virus: FORM.virus.checked,
+    //     })  
+    //   })
+    // }
+    let allUsers = fetch("http://localhost:2000/api/users/all", {
+      method: "GET",
+      
+    })
+    allUsers.then(result => {
+      console.log(result)
+    })
+    // let promise = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     for(let i = 1; i <= 100; i++) {
+          
+    //       setTimeout(() => {
+    //         console.log(`dima myzik №${i}`)
+    //         if(i == 100) {
+    //           resolve("OSCAR MYZIK")
+    //         }
+    //       }, 100 * i); 
+    //     }
+    //   }, 3000)
+    // })
+    // promise.then(result => {
+    //   console.log(result)
+    // })
+    // console.log("blablabla")
   }
 
   return (
-    <form className='logIn' name= "form" onSubmit={sendDate} id = "form">
+    <form className='logIn' name= "form" onSubmit={sendData} id = "form">
       <LogIn_SingIn itIsSing = {itIsSing} toggleStatus = {toggleStatus} />
       {!itIsSing && <Captcha /> }
       {!itIsSing && <Anceta /> }

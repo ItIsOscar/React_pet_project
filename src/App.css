@@ -1,6 +1,13 @@
-@import url(./components/SingOrLogIn/SingOrLogIn.css);
 
 .App {
   display: flex;
 }
+
+.content {
+  max-width: 1320px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
 
