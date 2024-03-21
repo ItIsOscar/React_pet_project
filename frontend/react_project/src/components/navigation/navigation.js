@@ -26,7 +26,7 @@ export default function Navigation() {
                     <option>English</option>
                     <option>O`zbek</option>
                 </select>
-                <button class="favourite">
+                <button className="favourite">
                     <img src={heart_border} />
                 </button>
                 <div className="navOption">
