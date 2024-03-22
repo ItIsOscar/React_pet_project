@@ -1,21 +1,22 @@
 import "./lineCard.scss"
 
-export default function LineCard() {
+export default function LineCard({pic, name, cost, seller, characteristics}) {
+  let characteristicsXJS = characteristics.map((el) => (
+    <h4>{el.value}</h4>
+  ))
   return (
-    <div className="lineCard">
-      <div>
-        <img />
+    <a className="lineCard">
+      <div className="pic_info">
+        <img src={pic}/>
         <ul>
-          <li>Chevrolet Spark</li>
-          <li>12.000.000</li>
-          <li>USA agenty</li>
+          <li>{name}</li>
+          <li>{cost}</li>
+          <li>{seller}</li>
         </ul>
       </div>
-      <div>
-        <h4>Бу</h4>
-        <h4>12 трансмиссий</h4>
-        <h4>4 сиденья</h4>
+      <div className="characteristics">
+        {characteristicsXJS}
       </div>
-    </div>
+    </a>
   )
 }

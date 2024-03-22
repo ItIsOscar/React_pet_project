@@ -9,6 +9,21 @@
 
 .filters {
   display: flex;
+
+  input {
+    width: 0px;
+    height: 0px;
+  }
+
+  input[name="typeOfSallers"]:checked+label { 
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    font-weight: 400;
+    &:hover {
+      color: white;
+      font-weight: 500;
+    }
+  }
   
   label {
     width: 150px;
@@ -22,18 +37,32 @@
     &:hover {
       color: white;
       background-color: var(--primary-color);
-      font-weight: 600;
+      font-weight: 500;
     } 
   }
 
-  input {
-    width: 0px;
-    height: 0px;
-  }
+  
+}
 
-  input[name="mainfilter"]:checked+label { 
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    font-weight: 600;
+.filtersOptions {
+  display: flex;
+  justify-content: space-between;
+  // column-gap: 5px;
+
+  button {
+
+    & + button {
+      margin-left: 1rem;
+    }
+    padding: 4px 8px;
+    background-color: var(--background-color);
+    font-size: 1.3rem;
+    font-weight: 400;
+    &:hover {
+      color: white;
+      background-color: var(--primary-color);
+      // измени значение на 600 и проверь
+      font-weight: 500;
+    }
   }
 }
