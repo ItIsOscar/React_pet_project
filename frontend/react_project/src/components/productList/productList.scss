@@ -1,0 +1,17 @@
+.productList_line {
+  display: flex;
+  flex-direction: column;
+  
+  & > *:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.productList_squad {
+  display: flex;
+  flex-wrap: wrap;
+  
+  & > *:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
