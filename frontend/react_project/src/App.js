@@ -5,6 +5,88 @@ import "./App.scss"
 
 import Navigation from './components/navigation/navigation';
 import LineCard from './components/shared/lineCardProduct/lineCard';
+import Banner from './components/banner/banner';
+import SquadCard from './components/shared/squadCardProduct/squadCardProduct';
+import { useState } from 'react';
+
+const product = [
+  {
+    pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+    name: "Chevrolet Spark",
+    cost: "12000000 сум",
+    seller: "USA agenty",
+    characteristics: [
+      {type: "status",  value: "б/у" },
+      {type: "color", value: "green"},
+      {type: "transmissionType", value: "12 LMBA"}
+    ]
+  },
+  {
+    pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+    name: "Chevrolet Spark",
+    cost: "12000000 сум",
+    seller: "USA agenty",
+    characteristics: [
+      {type: "status",  value: "б/у" },
+      {type: "color", value: "green"},
+      {type: "transmissionType", value: "12 LMBA"}
+    ]
+  },
+  {
+    pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+    name: "Chevrolet Spark",
+    cost: "12000000 сум",
+    seller: "USA agenty",
+    characteristics: [
+      {type: "status",  value: "б/у" },
+      {type: "color", value: "green"},
+      {type: "transmissionType", value: "12 LMBA"}
+    ]
+  }
+]
+
+export default function App() {
+  let [formOfProduct, changeForm] = useState("line")
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key == "t") {
+      console.log("change")
+      changeForm("squad")
+    }
+  })
+
+  let products = product.map((obj) => {
+    if(formOfProduct == "line" ) {
+      return <LineCard 
+      pic={obj.pic}
+      name={obj.name} 
+      cost={obj.cost} 
+      seller={obj.seller} 
+      characteristics={obj.characteristics} />
+    } else {
+      return <SquadCard 
+      pic={obj.pic}
+      name={obj.name} 
+      cost={obj.cost} 
+      seller={obj.seller} 
+      characteristics={obj.characteristics} />
+    }
+  })
+
+  return (
+    <>
+    <Navigation />
+    <Banner />
+    <div className='content'>
+      <Filters />
+      <div className={formOfProduct == "line" ? "productList_line" : "productList_squad"}>
+        {products}
+      </div>
+    </div>  
+  {/* <SignOrLogIn /> */}
+    </>
+  );
+}
 
 let lastFilters = JSON.stringify({
   mark: "BMW",
@@ -80,15 +162,3 @@ function* getPresident() {
 // console.log("result", generateRandomPassowrd())
 
 
-export default function App() {
-  return (
-    <>
-    <Navigation />
-    <div className='content'>
-      <Filters />
-      <LineCard />
-    </div>  
-  <SignOrLogIn />
-    </>
-  );
-}

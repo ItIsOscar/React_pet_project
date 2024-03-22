@@ -1,19 +1,8 @@
-
-.filtersOptions {
-    display: flex;
-
-
-    button {
-        margin-left: 1rem;
-        background-color: var(--background-color);
-        font-size: 1.3rem;
-        font-weight: 400;
-    }
-}
-
 .filters1 {
     display: flex;
+    // justify-content: center
     align-items: center;
     flex-wrap: wrap;
+    row-gap: 1rem;
     margin-top: 1rem;
 }
