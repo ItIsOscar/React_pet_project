@@ -1,0 +1,14 @@
+.panel_border {
+  margin-top: 2rem;
+  border-top: 2px solid black;
+} 
+
+.content.buyPanel {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  ul li {
+    margin-bottom: 1rem;
+  }
+}

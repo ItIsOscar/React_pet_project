@@ -30,6 +30,96 @@ app.get('/api/users/all', (req, res) => {
     });
 });
 
+app.get('/api/productList/all', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.status(200).json({
+        response: [
+            {
+              pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+              name: "Chevrolet Spark",
+              cost: "12000000 сум",
+              seller: "USA agenty",
+              characteristics: [
+                {type: "status",  value: "б/у" },
+                {type: "color", value: "green"},
+                {type: "transmissionType", value: "12 LMBA"}
+              ]
+            },
+            {
+              pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+              name: "Chevrolet Spark",
+              cost: "12000000 сум",
+              seller: "USA agenty",
+              characteristics: [
+                {type: "status",  value: "б/у" },
+                {type: "color", value: "green"},
+                {type: "transmissionType", value: "12 LMBA"}
+              ]
+            },
+            {
+              pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+              name: "Chevrolet Spark",
+              cost: "12000000 сум",
+              seller: "USA agenty",
+              characteristics: [
+                {type: "status",  value: "б/у" },
+                {type: "color", value: "green"},
+                {type: "transmissionType", value: "12 LMBA"}
+              ]
+            }
+        ]
+    });
+});
+
+app.get('/api/productList/favourite', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.status(200).json({
+        response: [
+            {
+              pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+              name: "Chevrolet Spark",
+              cost: "12000000 сум",
+              seller: "USA agenty",
+              characteristics: [
+                {type: "status",  value: "б/у" },
+                {type: "color", value: "green"},
+                {type: "transmissionType", value: "12 LMBA"}
+              ]
+            }
+        ]
+    });
+});
+
+app.get('/api/productList/basket', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.status(200).json({
+        response: [
+            {
+              pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+              name: "Chevrolet Spark",
+              cost: "12000000 сум",
+              seller: "USA agenty",
+              characteristics: [
+                {type: "status",  value: "б/у" },
+                {type: "color", value: "green"},
+                {type: "transmissionType", value: "12 LMBA"}
+              ]
+            },
+            {
+                pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+                name: "Chevrolet Spark",
+                cost: "12000000 сум",
+                seller: "USA agenty",
+                characteristics: [
+                  {type: "status",  value: "б/у" },
+                  {type: "color", value: "green"},
+                  {type: "transmissionType", value: "12 LMBA"}
+                ]
+              }
+        ]
+    });
+});
+
 app.delete('/api/users/all', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.sendStatus(200);

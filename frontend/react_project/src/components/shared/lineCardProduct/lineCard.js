@@ -2,7 +2,7 @@ import "./lineCard.scss"
 
 export default function LineCard({pic, name, cost, seller, characteristics}) {
   let characteristicsXJS = characteristics.map((el) => (
-    <h4>{el.value}</h4>
+    <h4 key={el.type}>{el.value}</h4>
   ))
   return (
     <a className="lineCard">

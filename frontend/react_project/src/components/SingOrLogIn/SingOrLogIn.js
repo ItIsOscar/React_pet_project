@@ -27,26 +27,34 @@ export default function SignOrLogIn() {
   function sendData(e) {
     e.preventDefault()
     const FORM = e.target
+
+    let allUsersJson = fetch("http://localhost:2000/api/productList/all", {
+      method: "GET",
+    })
+    allUsersJson.then(result => {
+      let allUsers = result.json()
+     console.log(allUsers)
+    }) 
     // Надо исправить
-    if(itIsSing) {
-      fetch("http://localhost:3000/", {
-        method: "POST",
-        body: JSON.stringify({
-          gmail: FORM.gmail.value,
-          password: FORM.password.value,
-        })  
-      })
-    } else if(validationData(FORM)) {
-      fetch("http://localhost:3000/", {
-        method: "POST",
-        body: JSON.stringify({
-          gmail: FORM.gmail.value,
-          password: FORM.password.value,
-          spam: FORM.spam.checked,
-          virus: FORM.virus.checked,
-        })  
-      })
-    }
+    // if(itIsSing) {
+    //   fetch("http://localhost:3000/", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       gmail: FORM.gmail.value,
+    //       password: FORM.password.value,
+    //     })  
+    //   })
+    // } else if(validationData(FORM)) {
+    //   fetch("http://localhost:3000/", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       gmail: FORM.gmail.value,
+    //       password: FORM.password.value,
+    //       spam: FORM.spam.checked,
+    //       virus: FORM.virus.checked,
+    //     })  
+    //   })
+    // }
     // 1 >>
   }
 
