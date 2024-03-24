@@ -7,32 +7,32 @@ import delivery from "../../assets/delivery.svg"
 import basket from "../../assets/basket.svg"
 // import basket from `${pathToAssets}basket.svg`
 
-function TopButtons({src, title}) {
+function TopButtons({href, src, title}) {
     return (
-        <div className="topButtons">
+        <a href={href} className="topButtons">
             <img src= {src} />
             <h2>{title}</h2>
-        </div>
+        </a>
     )
 }
 
 export default function Navigation() {
     return (
         <div className="navigation">
-            <img />
+            <a href="/">
+                <img />
+            </a>
             <div className="navContent">
                 <select className="language">
                     <option>Русский</option>
                     <option>English</option>
                     <option>O`zbek</option>
                 </select>
-                <button className="favourite">
-                    <img src={heart_border} />
-                </button>
                 <div className="navOption">
-                    <TopButtons title="Войти" src={user}/>
-                    <TopButtons title="Доставка" src={delivery}/>
-                    <TopButtons title="Корзина" src={basket}/>
+                    <TopButtons href="favourite" title="Избранное" src={heart_border} />
+                    <TopButtons href="entry" title="Войти" src={user}/>
+                    <TopButtons href="basket" title="Корзина" src={basket}/>
+                    <TopButtons href="delivery" title="Доставка" src={delivery}/>
                 </div>
             </div>
         </div>

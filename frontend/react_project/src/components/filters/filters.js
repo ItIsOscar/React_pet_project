@@ -49,6 +49,7 @@ function MainFilters() {
 export default function Filters() {
   function sendData(e) {
       e.preventDefault()
+      console.log(e)
       let formData = new FormData(e.target)
       fetch("", {
           method: "POST",
