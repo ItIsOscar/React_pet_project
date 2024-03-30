@@ -1,6 +1,5 @@
-import { products } from "../../assets/date"
-import { favouriteList } from "../../assets/date"
-import { basketList } from "../../assets/date"
+import { products } from "../../../assets/date"
+
 import LineCard from "../shared/lineCardProduct/lineCard"
 import SquadCard from "../shared/squadCardProduct/squadCardProduct"
 import "./productList.scss"

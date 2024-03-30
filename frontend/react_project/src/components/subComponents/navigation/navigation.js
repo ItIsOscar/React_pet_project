@@ -1,10 +1,10 @@
 import "./navigation.scss"
 
-import heart_border from "../../assets/heart_border.svg"
-import heart_full from "../../assets/heart_full.svg"
-import user from "../../assets/user.svg"
-import delivery from "../../assets/delivery.svg"
-import basket from "../../assets/basket.svg"
+import heart_border from "../../../assets/heart_border.svg"
+import heart_full from "../../../assets/heart_full.svg"
+import user from "../../../assets/user.svg"
+import delivery from "../../../assets/delivery.svg"
+import basket from "../../../assets/basket.svg"
 // import basket from `${pathToAssets}basket.svg`
 
 function TopButtons({href, src, title}) {

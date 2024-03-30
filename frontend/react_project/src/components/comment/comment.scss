@@ -1,0 +1,30 @@
+.comments {
+  padding: 1rem 0;
+  background-color: white;
+}
+
+.comments form {
+  padding: 0 2rem .5rem 2rem;
+  border-bottom: 2px solid black;
+}
+
+.commentsList {
+  margin: 1rem 2rem 0 2rem;
+}
+
+.comment {
+  &:not(:last-child) {
+    margin-bottom: 2rem
+  }
+  padding-right: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment img {
+  &:not(:last-child) {
+    margin-right: 2px;
+  }
+  width: 20px;
+  height: 20px;
+}
