@@ -1,0 +1,98 @@
+.content.productCard {
+  margin-top: 2rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+
+  img {
+    width: 300px;
+    height: 100%;
+    margin-right: 1rem;
+  }
+  div h2 {
+    margin-bottom: 1rem;
+  }
+}
+.characteristicsList {
+  display: flex;
+
+  ul {
+    :not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.mainBlock {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.description {
+  width: 60%;
+  background-color: white;
+  margin-right: 1rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.extraOption {
+  width: 40%;
+
+  > div {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: white;
+    
+    &:not(:last-child ) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.seller {
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 1rem;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  button {
+    padding: 0.7rem;
+    border-radius: 15px;
+    font-size: 24px;
+    color: white;
+    background-color: var(--primary-color);
+  }
+}
+
+.location {
+  *:not(div) {
+    margin-bottom: .5rem;
+    font-weight: 400;
+  }
+
+  div {
+    height: 100px;
+    background-color: gray;
+  }
+}
+

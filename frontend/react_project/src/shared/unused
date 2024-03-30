@@ -1,28 +1,6 @@
 // 1 << 
 
-// let allUsers = fetch("http://localhost:2000/api/users/all", {
-//   method: "GET",
-// })
-// allUsers.then(result => {
-//   console.log(result)
-// })
-// let promise = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     for(let i = 1; i <= 100; i++) {
-      
-//       setTimeout(() => {
-//         console.log(`dima myzik №${i}`)
-//         if(i == 100) {
-//           resolve("OSCAR MYZIK")
-//         }
-//       }, 100 * i); 
-//     }
-//   }, 3000)
-// })
-// promise.then(result => {
-//   console.log(result)
-// })
-// console.log("blablabla") 
+
 
 
 // 2 <<

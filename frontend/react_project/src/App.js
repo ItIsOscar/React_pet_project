@@ -1,74 +1,49 @@
-
-
-
 import "./App.scss"
+
 import { useState } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { products,
+  basketList, 
+  deliveryList, 
+  favouriteList,
+  testList, 
+} from "./assets/date";
 
-import SignOrLogIn from './components/SingOrLogIn/SingOrLogIn';
-import Navigation from './components/navigation/navigation';
-import Banner from './components/banner/banner';
-import Filters from './components/filters/filters';
-import ProductList from "./components/productList/productList";
-import BuyPanel from "./components/buyPanel/buyPanel";
-import Title from "./components/shared/title/title";
+import Navigation from './components/subComponents/navigation/navigation';
+import Main from "./components/main";
+import Basket from "./components/basket";
+import Delivery from "./components/delivery";
+import Favourite from "./components/favourite";
+import { Button } from "./button";
+import ProductCard from "./components/productCard/productCard";
 
-const site = {
-  Main: (formOfProduct) => (
-    <>
-      <Banner />
-      <div className='content'>
-        <Filters />
-        <ProductList status={"line"}/>
-      </div>  
-    </>
-  ),
-  favourite: () => (
-    <div className="content">
-      <Title>Избранное</Title>
-      <ProductList status={"line"}/>
-      <div className="recommend">
-        <h2>Подойдет также</h2>
-        <ProductList status={"line"} />
-      </div>
-    </div>
-  ),
-  basket: () => (
-    <>
-      <div className="content">
-        <Title>Корзина</Title>  
-        <ProductList status={"line"}/>
-      </div>
-      <BuyPanel />
-    </>
-  ),
-  delivery: () => (
-    <div className="content">
-      <ProductList status={"line"} />
-    </div>
-  )
+function returnData(data) {
+  return data
 }
-
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: site.Main()
+    element: <Main />,
+    loader: () => (returnData(products))
   },
   {
     path: "favourite",
-    element: site.favourite()
+    element: <Favourite />,
+    loader: () => (returnData(favouriteList))
   },
   {
     path: "basket",
-    element: site.basket()
+    element: <Basket />,
+    loader: () => (returnData(basketList))
   },
   {
     path: "delivery",
-    element: site.delivery()
+    element: <Delivery />,
+    loader: () => (returnData(deliveryList))
   },
 ])
 
@@ -81,13 +56,13 @@ export default function App() {
       changeForm(formOfProduct == "line" ? "squad" : "line")
     }
   })
-
   return (
     <div>
+      {/* <Button /> */}
       <Navigation />
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      <ProductCard product={products[0]}/>
     </div>
   );
 }
-
 // 2 >>
