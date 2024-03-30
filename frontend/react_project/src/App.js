@@ -60,8 +60,8 @@ export default function App() {
     <div>
       {/* <Button /> */}
       <Navigation />
-      {/* <RouterProvider router={router} /> */}
-      <ProductCard product={products[0]}/>
+      <RouterProvider router={router} />
+      {/* <ProductCard product={products[0]}/> */}
     </div>
   );
 }

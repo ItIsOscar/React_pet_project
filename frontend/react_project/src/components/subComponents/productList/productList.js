@@ -11,21 +11,9 @@ export default function ProductList({status, productType}) {
 
   let productsXJS = products.map((obj, inx) => {  //productList.map
     if(status == "line" ) {
-      return <LineCard 
-      pic={obj.pic}
-      name={obj.name} 
-      cost={obj.cost} 
-      seller={obj.seller} 
-      characteristics={obj.characteristics} 
-      key={inx} />
+      return <LineCard product={obj} key={inx} />
     } else {
-      return <SquadCard 
-      pic={obj.pic}
-      name={obj.name} 
-      cost={obj.cost} 
-      seller={obj.seller} 
-      characteristics={obj.characteristics} 
-      key={inx} />
+      return <SquadCard product={obj} key={inx} />
     }
   })
 

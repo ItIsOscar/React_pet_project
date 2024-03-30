@@ -1,17 +1,17 @@
 import "./lineCard.scss"
 
-export default function LineCard({pic, name, cost, seller, characteristics}) {
-  let characteristicsXJS = characteristics.map((el) => (
+export default function LineCard({product}) {
+  let characteristicsXJS = product.characteristics.map((el) => (
     <h4 key={el.type}>{el.value}</h4>
   ))
   return (
     <a className="lineCard">
       <div className="pic_info">
-        <img src={pic}/>
+        <img src={product.pic}/>
         <ul>
-          <li>{name}</li>
-          <li>{cost}</li>
-          <li>{seller}</li>
+          <li>{product.name}</li>
+          <li>{product.cost}</li>
+          <li>{product.seller}</li>
         </ul>
       </div>
       <div className="characteristics">
