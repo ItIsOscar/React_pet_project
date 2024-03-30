@@ -10,13 +10,13 @@ export const users = [
     name: "USA Agenty",
     pic: undefined,
     number: "+99804525409",
-    products: products
+    // products: products
   },
   {
     name: "Ваня",
     pic: undefined,
     number: "+9989506409",
-    products: null
+    // products: null
   }
 ]
 
@@ -78,7 +78,7 @@ export const products = [
       ],
       comments: comments
     }
-  ]
+]
 
 export const favouriteList = [
   products[0],
