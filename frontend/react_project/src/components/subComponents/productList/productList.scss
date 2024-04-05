@@ -1,10 +1,6 @@
 .productList_line {
   display: flex;
   flex-direction: column;
-  
-  & > *:not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
 }
 
 .productList_squad {

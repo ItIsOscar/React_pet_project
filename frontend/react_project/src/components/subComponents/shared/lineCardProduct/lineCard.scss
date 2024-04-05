@@ -1,11 +1,12 @@
 .lineCard:not(:first-child) {
-  margin-top: 1rem;
+  margin-top: 10px;
 }
 
 .lineCard {
   width: 100%;
   height: 200px;
-  padding: 1rem;
+  padding: 10px;
+  border-radius: 10px;
   background-color: white;
   display: flex;
   justify-content: space-between;

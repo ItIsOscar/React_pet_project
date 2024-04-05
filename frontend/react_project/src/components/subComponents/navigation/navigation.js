@@ -1,3 +1,4 @@
+import { Link, Outlet } from "react-router-dom"
 import "./navigation.scss"
 
 import heart_border from "../../../assets/heart_border.svg"
@@ -9,32 +10,35 @@ import basket from "../../../assets/basket.svg"
 
 function TopButtons({href, src, title}) {
     return (
-        <a href={href} className="topButtons">
-            <img src= {src} />
+        <Link to={href} className="topButtons">
+            <img src={src} />
             <h2>{title}</h2>
-        </a>
+        </Link>
     )
 }
 
 export default function Navigation() {
     return (
-        <div className="navigation">
-            <a href="/">
-                <img />
-            </a>
-            <div className="navContent">
-                <select className="language">
-                    <option>Русский</option>
-                    <option>English</option>
-                    <option>O`zbek</option>
-                </select>
-                <div className="navOption">
-                    <TopButtons href="favourite" title="Избранное" src={heart_border} />
-                    <TopButtons href="entry" title="Войти" src={user}/>
-                    <TopButtons href="basket" title="Корзина" src={basket}/>
-                    <TopButtons href="delivery" title="Доставка" src={delivery}/>
+        <>
+            <div className="navigation">
+                <a href="/">
+                    <img />
+                </a>
+                <div className="navContent">
+                    <select className="language">
+                        <option>Русский</option>
+                        <option>English</option>
+                        <option>O`zbek</option>
+                    </select>
+                    <div className="navOption">
+                        <TopButtons href="/favourite" title="Избранное" src={heart_border} />
+                        <TopButtons href="entry" title="Войти" src={user}/>
+                        <TopButtons href="/basket" title="Корзина" src={basket}/>
+                        <TopButtons href="/delivery" title="Доставка" src={delivery}/>
+                    </div>
                 </div>
             </div>
-        </div>
+            <Outlet />
+        </>
     )
 }

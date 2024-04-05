@@ -10,17 +10,19 @@ export const users = [
     name: "USA Agenty",
     pic: undefined,
     number: "+99804525409",
+    discription: "РАвыаоыврыфпвравфыа",
     // products: products
   },
   {
     name: "Ваня",
     pic: undefined,
     number: "+9989506409",
+    discription: "РАвыаоыврыфпвравфыа",
     // products: null
   }
 ]
 
-const comments = [
+export const comments = [
   {
     user: users[1],
     grade: 4,
@@ -39,6 +41,7 @@ const comments = [
 
 export const products = [
     {
+      id: 0,
       pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
       name: "Chevrolet Spark",
       cost: "12000000 сум",
@@ -53,11 +56,13 @@ export const products = [
       comments: comments
     },
     {
+      id: 1,
       pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
       name: "Chevrolet Spark",
       cost: "12000000 сум",
+      description: "Chevrolet Spark — малолитражный автомобиль, выпускаемый General Motors с 2005 года. До 2015 года был известен на некоторых рынках, как Daewoo Matiz. А с 2015 до 2020 год за пределы Узбекистана поставлялся под маркой Ravon R2.",
       saller: users[0],    
-      locatin: "Шота Руставели",
+      location: "Шота Руставели",
       characteristics: [
         {type: "status",  value: "б/у" },
         {type: "color", value: "green"},
@@ -66,11 +71,13 @@ export const products = [
       comments: comments
     },
     {
+      id: 2,
       pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
       name: "Chevrolet Spark",
       cost: "12000000 сум",
+      description: "Chevrolet Spark — малолитражный автомобиль, выпускаемый General Motors с 2005 года. До 2015 года был известен на некоторых рынках, как Daewoo Matiz. А с 2015 до 2020 год за пределы Узбекистана поставлялся под маркой Ravon R2.",
       saller: users[0],
-      locatin: "Шота Руставели",
+      location: "Шота Руставели",
       characteristics: [
         {type: "status",  value: "б/у" },
         {type: "color", value: "green"},
