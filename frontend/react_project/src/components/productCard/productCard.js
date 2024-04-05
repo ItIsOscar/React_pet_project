@@ -1,6 +1,6 @@
 import "./productCard.scss"
-
 import Comments from "../comment/comment"
+import { Link, useLoaderData } from "react-router-dom"
 
 function ProductTitle({product}) {
   let characteristics = product.characteristics.map((el, inx) => (
@@ -32,9 +32,9 @@ function Seller({product}) {
     <div className="seller">
       <div>
         <img src={product.saller.pic}/>
-        <h3>{product.saller.name}</h3>
+        <h3>{product.saller.name}</h3>`${}`
       </div>
-      <h4>{product.saller.number}</h4>
+      <a href={"tel:" + product.saller.number}>{product.saller.number}</a>
       <button>Написать</button>
     </div>
   )
@@ -50,7 +50,8 @@ function Location({product}) {
   )
 }
 
-export default function ProductCard({product}) {
+export default function ProductCard() {
+  let product = useLoaderData()
   return (
     <div className="content productCard">
       <ProductTitle product={product} />

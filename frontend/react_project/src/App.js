@@ -9,7 +9,8 @@ import { products,
   basketList, 
   deliveryList, 
   favouriteList,
-  testList, 
+  testList,
+  users, 
 } from "./assets/date";
 
 import Navigation from './components/subComponents/navigation/navigation';
@@ -19,6 +20,8 @@ import Delivery from "./components/delivery";
 import Favourite from "./components/favourite";
 import { Button } from "./button";
 import ProductCard from "./components/productCard/productCard";
+import Profile from "./components/profile/profile";
+import SignOrLogIn from "./components/SingOrLogIn/SingOrLogIn";
 
 function returnData(data) {
   return data
@@ -27,24 +30,41 @@ function returnData(data) {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
-    loader: () => (returnData(products))
+    element: <Navigation />,
+    loader: () => (returnData(products)),
+    children: [
+      {
+        path: "/",
+        element: <Main />,
+        loader: () => (returnData(products))
+      },
+      {
+        path: "favourite",
+        element: <Favourite />,
+        loader: () => (returnData(favouriteList))
+      },
+      {
+        path: "entry",
+        element: <SignOrLogIn />,
+      },
+      {
+        path: "basket",
+        element: <Basket />,
+        loader: () => (returnData(basketList))
+      },
+      {
+        path: "delivery",
+        element: <Delivery />,
+        loader: () => (returnData(deliveryList))
+      },
+      {
+        path: "cardProduct/:id",
+        loader: ({ params }) => (returnData(products[params.id])), 
+        element: <ProductCard />
+      }
+    ]
   },
-  {
-    path: "favourite",
-    element: <Favourite />,
-    loader: () => (returnData(favouriteList))
-  },
-  {
-    path: "basket",
-    element: <Basket />,
-    loader: () => (returnData(basketList))
-  },
-  {
-    path: "delivery",
-    element: <Delivery />,
-    loader: () => (returnData(deliveryList))
-  },
+  
 ])
 
 export default function App() {
@@ -57,12 +77,7 @@ export default function App() {
     }
   })
   return (
-    <div>
-      {/* <Button /> */}
-      <Navigation />
-      <RouterProvider router={router} />
-      {/* <ProductCard product={products[0]}/> */}
-    </div>
+    <RouterProvider router={router} />
   );
 }
 // 2 >>
