@@ -13,7 +13,7 @@ import { products,
   users, 
 } from "./assets/date";
 
-import Navigation from './components/subComponents/navigation/navigation';
+import Navigation from './components/navigation/navigation';
 import Main from "./components/main";
 import Basket from "./components/basket";
 import Delivery from "./components/delivery";
@@ -69,6 +69,16 @@ const router = createBrowserRouter([
 
 export default function App() {
   let [formOfProduct, changeForm] = useState("line")
+  window.onscroll = () => {
+    let currentScroll = window.scrollY
+    console.log("scrollY", currentScroll)
+    let nav = document.querySelector(".navigation")
+    if(currentScroll != 0) {
+      nav.style.transform = "translate3d(0, -100%, 0)"
+    } else {
+      nav.style.transform = "translate3d(0, 0, 0)"
+    }
+  }
 
   document.addEventListener("keydown", (e) => {
     if(e.key == "t") {
