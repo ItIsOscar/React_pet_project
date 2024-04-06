@@ -3,10 +3,17 @@
     width: 100%;
     height: 100px;
     padding: 0 350px;
+    transition: transform .5s;
     background-color: var(--primary-color);
+    position: fixed;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.navigation_hidden {
+    transform: scale(1, 0);
 }
 
 .navContent {
