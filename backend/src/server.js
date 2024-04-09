@@ -23,6 +23,23 @@ export const users = [
   }
 ]
 
+export const comments = [
+  {
+    user: users[1],
+    grade: 4,
+    content: "Без никаких дефектов, цена оправдана",
+    date: "14 марта 2024 года",
+    children: ""
+  },
+  {
+    user: users[1],
+    grade: 4,
+    content: "Без никаких дефектов, цена оправдана",
+    date: "14 марта 2024 года",
+    children: ""
+  }
+]
+
 app.get('/api/users/all', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.status(200).json({
@@ -138,30 +155,22 @@ app.get('/api/productList/basket', (req, res) => {
 });
 
 app.delete('/api/users/all', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.sendStatus(200);
-  });
+  res.set('Access-Control-Allow-Origin', '*');
+  res.sendStatus(200);
+});
   
-  app.get('/api/comments/all', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.status(200).json({
-      response: [
-        {
-          user: users[1],
-          grade: 4,
-          content: "Без никаких дефектов, цена оправдана",
-          date: "14 марта 2024 года",
-          children: ""
-        },
-        {
-          user: users[1],
-          grade: 4,
-          content: "Без никаких дефектов, цена оправдана",
-          date: "14 марта 2024 года",
-          children: ""
-        }
-      ] 
-    })
+app.get('/api/comments/all', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.status(200).json({
+    response: comments
+  })
+});
+
+app.get('/api/comments/:id', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.status(200).json({
+    response: comments[req.params.id]
+  })
 });
 
 app.listen(2000, () => {
