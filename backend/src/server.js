@@ -6,6 +6,23 @@ const app = express();
 
 app.use(bodyParser.json({ type: 'application/json' }));
 
+export const users = [
+  {
+    name: "USA Agenty",
+    pic: undefined,
+    number: "+99804525409",
+    discription: "РАвыаоыврыфпвравфыа",
+    // products: products
+  },
+  {
+    name: "Ваня",
+    pic: undefined,
+    number: "+9989506409",
+    discription: "РАвыаоыврыфпвравфыа",
+    // products: null
+  }
+]
+
 app.get('/api/users/all', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.status(200).json({
@@ -123,6 +140,28 @@ app.get('/api/productList/basket', (req, res) => {
 app.delete('/api/users/all', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.sendStatus(200);
+  });
+  
+  app.get('/api/comments/all', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.status(200).json({
+      response: [
+        {
+          user: users[1],
+          grade: 4,
+          content: "Без никаких дефектов, цена оправдана",
+          date: "14 марта 2024 года",
+          children: ""
+        },
+        {
+          user: users[1],
+          grade: 4,
+          content: "Без никаких дефектов, цена оправдана",
+          date: "14 марта 2024 года",
+          children: ""
+        }
+      ] 
+    })
 });
 
 app.listen(2000, () => {
