@@ -5,13 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { products,
-  basketList, 
-  deliveryList, 
-  favouriteList,
-  testList,
-  users, 
-} from "./assets/date";
+
 
 import Navigation from './components/navigation/navigation';
 import Main from "./components/main";
@@ -27,21 +21,27 @@ function returnData(data) {
   return data
 }
 
+async function getData(URL) {
+  let result = await fetch(`${URL}`, {
+    method: "GET",
+  })
+  return result.json()
+} 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigation />,
-    loader: () => (returnData(products)),
     children: [
       {
         path: "/",
         element: <Main />,
-        loader: () => (returnData(products))
+        loader: () => getData("http://localhost:2000/api/productList/all")
       },
       {
         path: "favourite",
         element: <Favourite />,
-        loader: () => (returnData(favouriteList))
+        loader: () => getData("http://localhost:2000/api/productList/all")
       },
       {
         path: "entry",
@@ -50,16 +50,16 @@ const router = createBrowserRouter([
       {
         path: "basket",
         element: <Basket />,
-        loader: () => (returnData(basketList))
+        loader: () => getData("http://localhost:2000/api/productList/all")
       },
       {
         path: "delivery",
         element: <Delivery />,
-        loader: () => (returnData(deliveryList))
+        loader: () => getData("http://localhost:2000/api/productList/all")
       },
       {
         path: "cardProduct/:id",
-        loader: ({ params }) => (returnData(products[params.id])), 
+        loader: ({ params }) => getData("http://localhost:2000/api/productList/all",),
         element: <ProductCard />
       }
     ]

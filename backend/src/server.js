@@ -6,24 +6,24 @@ const app = express();
 
 app.use(bodyParser.json({ type: 'application/json' }));
 
-export const users = [
+const users = [
   {
     name: "USA Agenty",
-    pic: undefined,
+    pic: null,
     number: "+99804525409",
     discription: "РАвыаоыврыфпвравфыа",
     // products: products
   },
   {
     name: "Ваня",
-    pic: undefined,
+    pic: null,
     number: "+9989506409",
     discription: "РАвыаоыврыфпвравфыа",
     // products: null
   }
 ]
 
-export const comments = [
+const comments = [
   {
     user: users[1],
     grade: 4,
@@ -68,37 +68,43 @@ app.get('/api/productList/all', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.status(200).json([
       {
+        id: 0,
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
         cost: "12000000 сум",
-        seller: "USA agenty",
+        seller: users[0],
         characteristics: [
           {type: "status",  value: "б/у" },
           {type: "color", value: "green"},
           {type: "transmissionType", value: "12 LMBA"}
-        ]
+        ],
+        comments: comments
       },
       {
+        id: 1,
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
         cost: "12000000 сум",
-        seller: "USA agenty",
+        seller: users[0],
         characteristics: [
           {type: "status",  value: "б/у" },
           {type: "color", value: "green"},
           {type: "transmissionType", value: "12 LMBA"}
-        ]
+        ],
+        comments: comments
       },
       {
+        id: 2,
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
         cost: "12000000 сум",
-        seller: "USA agenty",
+        seller: users[0],
         characteristics: [
           {type: "status",  value: "б/у" },
           {type: "color", value: "green"},
           {type: "transmissionType", value: "12 LMBA"}
-        ]
+        ],
+        comments: comments
       }
   ]);
 });

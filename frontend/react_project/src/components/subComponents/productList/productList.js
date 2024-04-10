@@ -1,15 +1,12 @@
-import { products } from "../../../assets/date"
+
 
 import LineCard from "../shared/lineCardProduct/lineCard"
 import SquadCard from "../shared/squadCardProduct/squadCardProduct"
 import "./productList.scss"
 
-export default function ProductList({status, productType}) {
-  // let productList = fetch(`http://localhost:3000/api/productList/${productType}`, {
-  //   method: "GET"
-  // }) 
+export default function ProductList({status, list}) {
 
-  let productsXJS = products.map((obj, inx) => {  //productList.map
+  let productsJSX = list.map((obj, inx) => {  
     if(status == "line" ) {
       return <LineCard product={obj} key={inx} />
     } else {
@@ -19,7 +16,7 @@ export default function ProductList({status, productType}) {
 
   return (
     <div className={status == "line" ? "productList_line" : "productList_squad"}>
-      {productsXJS}
+      {productsJSX}
     </div>
   )
 }

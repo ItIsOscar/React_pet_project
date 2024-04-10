@@ -1,6 +1,8 @@
 import ProductList from "./subComponents/productList/productList"
 import Title from "./subComponents/shared/title/title"
 
+import { useLoaderData } from "react-router"
+
 function CheckBox({children, value, name, ischecked = false}) {
   return (
     <>
@@ -39,14 +41,15 @@ function LineSelector() {
 }
 
 export default function Favourite() {
+  const products = useLoaderData()
   return (
     <div className="content">
       <Title>Избранное</Title>
       <LineSelector />
-      <ProductList status={"line"}/>
+      <ProductList status={"line"} list={products}/>
       <div className="recommend">
         <h2>Подойдет также</h2>
-        <ProductList status={"line"} />
+        <ProductList status={"line"} list={products}/>
       </div>
     </div>
   )

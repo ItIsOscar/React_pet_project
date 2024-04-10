@@ -1,18 +1,18 @@
-import { useLoaderData, useRouteLoaderData } from "react-router"
+import { useLoaderData } from "react-router"
 
 import Filters from "./subComponents/filters/filters"
 import ProductList from "./subComponents/productList/productList"
 import Banner from "./subComponents/banner/banner"
 
 export default function Main() {
-  const products = useLoaderData()
-  console.log(products)
+  const product = useLoaderData()
+  console.log("response product", product)
   return (
     <>
       <Banner />
       <div className='content'>
         <Filters />
-        <ProductList status={"line"}/>
+        <ProductList status={"line"} list={product}/>
       </div>
     </>
   )

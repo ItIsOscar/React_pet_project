@@ -12,7 +12,7 @@ export default function LineCard({product}) {
         <ul>
           <li>{product.name}</li>
           <li>{product.cost}</li>
-          <li>{product.seller}</li>
+          <li>{product.seller.name}</li>
         </ul>
       </div>
       <div className="characteristics">

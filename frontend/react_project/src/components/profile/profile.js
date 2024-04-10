@@ -1,7 +1,6 @@
 import "./profile.scss"
 
 import Comments from "../comment/comment";
-import { comments } from "../../assets/date";
 import ProductList from "../subComponents/productList/productList";
 import Title from "../subComponents/shared/title/title";
 
@@ -27,7 +26,7 @@ export default function Profile({user}) {
           <ProductList status="line"/>  
         </div>
         <Title margin="2rem 1rem 1rem 1rem">Комментарии</Title>
-        <Comments comments={comments} />  
+        {/* <Comments comments={comments} />  */}
       </div> 
     </div>
   )

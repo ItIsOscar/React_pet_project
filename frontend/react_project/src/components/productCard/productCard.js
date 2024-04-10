@@ -31,10 +31,10 @@ function Seller({product}) {
   return (
     <div className="seller">
       <div>
-        <img src={product.saller.pic}/>
-        <h3>{product.saller.name}</h3>`${}`
+        <img src={product.seller.pic}/>
+        <h3>{product.seller.name}</h3>`${}`
       </div>
-      <a href={"tel:" + product.saller.number}>{product.saller.number}</a>
+      <a href={"tel:" + product.seller.number}>{product.seller.number}</a>
       <button>Написать</button>
     </div>
   )
@@ -51,7 +51,10 @@ function Location({product}) {
 }
 
 export default function ProductCard() {
-  let product = useLoaderData()
+  let productList = useLoaderData()
+  console.log("productList",productList)
+  let product = productList[0]
+  console.log("product",product)
   return (
     <div className="content productCard">
       <ProductTitle product={product} />
