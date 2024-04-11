@@ -77,10 +77,10 @@ export default function App() {
     let currentScroll = window.scrollY
     console.log("scrollY", currentScroll)
     let nav = document.querySelector(".navigation")
-    if(currentScroll != 0) {
-      nav.style.transform = "translate3d(0, -100%, 0)"
+    if(currentScroll >= 200) {
+      nav.style.transform = "translate(0, -100%)"
     } else {
-      nav.style.transform = "translate3d(0, 0, 0)"
+      nav.style.transform = "translate(0, 0)"
     }
   }
 

@@ -28,7 +28,6 @@ export default function Navigation() {
     function hover() {
         console.log("hi!")
     }
-
     return (
         <>
             <div className="navigation">

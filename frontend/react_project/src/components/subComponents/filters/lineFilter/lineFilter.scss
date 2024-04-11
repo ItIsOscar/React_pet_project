@@ -1,6 +1,5 @@
 .mainFilters {
   width: 100%;
-  height: 40px;
   margin: 1rem 0 2rem 0;
   border-bottom: 1px solid black;
   display: flex;
@@ -10,54 +9,57 @@
 .filters {
   display: flex;
 
+}
+
+.checkBox {
+  box-sizing: content-box;
+  height: 100%;
+  padding: 0 20px;
+  padding-bottom: 2px;
+
+  &:hover {
+    color: white;
+    background-color: var(--primary-color);
+    font-weight: 500;
+  } 
+
   input {
     width: 0px;
     height: 0px;
   }
 
-  input[name="typeOfSallers"]:checked+label { 
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    font-weight: 400;
-    &:hover {
-      color: white;
-      font-weight: 500;
-    }
-  }
-  
-  label {
-    width: 150px;
-    height: 100%;
+  span {
     font-size: 1.4rem;
     font-size: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline;
 
-    &:hover {
-      color: white;
-      background-color: var(--primary-color);
-      font-weight: 500;
-    } 
   }
+}
 
-  
+.line {
+  display: block;
+  width: 120px;
+  height: 2px;
+  margin: 0 20px;
+  background-color: var(--primary-color);
+  transition: width 1s, transform 1s;
 }
 
 .filtersOptions {
   display: flex;
   justify-content: space-between;
-  // column-gap: 5px;
 
   button {
 
     & + button {
       margin-left: 1rem;
     }
-    padding: 4px 8px;
+
+    padding: 0 8px;
     background-color: var(--background-color);
     font-size: 1.3rem;
     font-weight: 400;
+
     &:hover {
       color: white;
       background-color: var(--primary-color);
@@ -66,3 +68,4 @@
     }
   }
 }
+
