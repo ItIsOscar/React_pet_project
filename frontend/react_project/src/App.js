@@ -16,6 +16,7 @@ import { Button } from "./button";
 import ProductCard from "./components/productCard/productCard";
 import Profile from "./components/profile/profile";
 import SignOrLogIn from "./components/SingOrLogIn/SingOrLogIn";
+import Page404 from "./components/page404/page404";
 
 function returnData(data) {
   return data
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigation />,
+    errorElement: <Page404 />,
     children: [
       {
         path: "/",
@@ -54,6 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "delivery",
+        
         element: <Delivery />,
         loader: () => getData("http://localhost:2000/api/productList/all")
       },
@@ -61,7 +64,8 @@ const router = createBrowserRouter([
         path: "cardProduct/:id",
         loader: ({ params }) => getData("http://localhost:2000/api/productList/all",),
         element: <ProductCard />
-      }
+      },
+
     ]
   },
   
