@@ -19,7 +19,7 @@ export default function LineFilter() {
   const firstLabel = useRef(null)
   const secondLabel = useRef(null)
   const thirdLabel = useRef(null)
-  let line = useRef(null)
+  const line = useRef(null)
 
   function findActiveIndex(allLabes) {
     return allLabes.findIndex((el) => el.el.children[0].checked) //active == to
