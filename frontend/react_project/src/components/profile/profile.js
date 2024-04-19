@@ -1,6 +1,6 @@
 import "./profile.scss"
 
-import Comments from "../comment/comment";
+import Comments from "../subComponents/comment/comment";
 import ProductList from "../subComponents/productList/productList";
 import Title from "../subComponents/shared/title/title";
 

@@ -23,7 +23,7 @@ export default function LineCard({product}) {
         <img src={product.pic}/>
         <ul>
           <li>{product.name}</li>
-          <li>{product.cost}</li>
+          <li>{product.cost.value + " " + product.cost.currency}</li>
           <li>{product.seller.name}</li>
         </ul>
       </div>

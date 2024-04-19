@@ -71,7 +71,10 @@ app.get('/api/productList/all', (req, res) => {
         id: 0,
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
-        cost: "12000000 сум",
+        cost: {
+          value: 12000000,
+          currency: "сум"
+        },
         seller: users[0],
         characteristics: [
           {type: "status",  value: "б/у" },
@@ -84,7 +87,10 @@ app.get('/api/productList/all', (req, res) => {
         id: 1,
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
-        cost: "12000000 сум",
+        cost: {
+          value: 12000000,
+          currency: "сум"
+        },
         seller: users[0],
         characteristics: [
           {type: "status",  value: "б/у" },
@@ -97,7 +103,10 @@ app.get('/api/productList/all', (req, res) => {
         id: 2,
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
-        cost: "12000000 сум",
+        cost: {
+          value: 12000000,
+          currency: "сум"
+        },
         seller: users[0],
         characteristics: [
           {type: "status",  value: "б/у" },
@@ -115,7 +124,10 @@ app.get('/api/productList/favourite', (req, res) => {
       {
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
-        cost: "12000000 сум",
+        cost: {
+          value: 12000000,
+          currency: "сум"
+        },
         seller: "USA agenty",
         characteristics: [
           {type: "status",  value: "б/у" },
@@ -132,7 +144,10 @@ app.get('/api/productList/basket', (req, res) => {
       {
         pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
         name: "Chevrolet Spark",
-        cost: "12000000 сум",
+        cost: {
+          value: 12000000,
+          currency: "сум"
+        },
         seller: "USA agenty",
         characteristics: [
           {type: "status",  value: "б/у" },
@@ -143,7 +158,10 @@ app.get('/api/productList/basket', (req, res) => {
       {
           pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
           name: "Chevrolet Spark",
-          cost: "12000000 сум",
+          cost: {
+          value: 12000000,
+          currency: "сум"
+        },
           seller: "USA agenty",
           characteristics: [
             {type: "status",  value: "б/у" },

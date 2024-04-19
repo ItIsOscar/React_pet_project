@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import Main from "./components/main";
-import Basket from "./components/basket";
+import Basket from "./components/basket/basket";
 import Delivery from "./components/delivery";
 import Favourite from "./components/favourite";
 import { Button } from "./button";

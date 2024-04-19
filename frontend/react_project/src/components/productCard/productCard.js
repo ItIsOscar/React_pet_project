@@ -1,5 +1,5 @@
 import "./productCard.scss"
-import Comments from "../comment/comment"
+import Comments from "../subComponents/comment/comment"
 import { Link, useLoaderData } from "react-router-dom"
 
 function ProductTitle({product}) {
@@ -19,32 +19,32 @@ function ProductTitle({product}) {
   )
 }
 
-function Description({product}) {
+function Description({description}) {
   return (
     <div className="description">
-      <p>{product.description}</p>
+      <p>{description}</p>
     </div>
   )
 }
 
-function Seller({product}) {
+function Seller({saller}) {
   return (
     <div className="seller">
       <div>
-        <img src={product.seller.pic}/>
-        <h3>{product.seller.name}</h3>`${}`
+        <img src={saller.pic}/>
+        <h3>{saller.name}</h3>`${}`
       </div>
-      <a href={"tel:" + product.seller.number}>{product.seller.number}</a>
+      <a href={"tel:" + saller.number}>{saller.number}</a>
       <button>Написать</button>
     </div>
   )
 }
 
-function Location({product}) {
+function Location({location}) {
   return (
     <div className="location">
       <h3>Местоположение</h3>
-      <h4>{product.location}</h4>
+      <h4>{location}</h4>
       <div></div>
     </div>  
   )
@@ -52,17 +52,15 @@ function Location({product}) {
 
 export default function ProductCard() {
   let productList = useLoaderData()
-  console.log("productList",productList)
   let product = productList[0]
-  console.log("product",product)
   return (
     <div className="content productCard">
       <ProductTitle product={product} />
       <div className="mainBlock">
-        <Description product={product} />
+        <Description description={product.description} />
         <div className="extraOption">
-          <Seller product={product} />
-          <Location product={product}/>
+          <Seller saller={product.seller} />
+          <Location location={product.location}/>
         </div>
       </div>
       <Comments comments={product.comments} />

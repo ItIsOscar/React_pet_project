@@ -12,7 +12,7 @@ export default function SquadCard({product}) {
       <div className="characteristics">
         {characteristicsXJS}
       </div>
-        <h3>{product.cost}</h3>
+        <h3>{product.cost.value + " " + product.cost.currency}</h3>
         <h3>{product.seller}</h3>
     </a>
   )
