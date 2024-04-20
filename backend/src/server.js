@@ -73,7 +73,7 @@ app.get('/api/productList/all', (req, res) => {
         name: "Chevrolet Spark",
         cost: {
           value: 12000000,
-          currency: "сум"
+          currency: "сум",
         },
         seller: users[0],
         characteristics: [

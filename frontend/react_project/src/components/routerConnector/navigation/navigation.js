@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import "./navigation.scss"
 
+import logo from "../../../assets/logo.png"
 import heart_border from "../../../assets/heart_border.svg"
 import heart_full from "../../../assets/heart_full.svg"
 import user_border from "../../../assets/user_border.svg"
@@ -11,11 +12,12 @@ import basket_border from "../../../assets/basket_border.svg"
 import basket_full from "../../../assets/basket_full.svg"
 import { useRef, useState } from "react"
 
-function TopButtons({ href, hoverSrc, src, title }) {
+function TopButtons({ href, hoverSrc, src, title, handleClick = null}) {
   let [isHover, setHover] = useState(false)
   
   return (
     <Link to={href} className="topButtons"
+      onClick={handleClick}
       onMouseOver={() => {setHover(true)}}
       onMouseOut={() => {setHover(false)}} >
       <img src={isHover ? hoverSrc : src} />
@@ -24,7 +26,7 @@ function TopButtons({ href, hoverSrc, src, title }) {
   )
 }
 
-export default function Navigation() {
+export default function Navigation({toggleIsReg}) {
   let [status, setStatus] = useState("")
   let lastScroll = useRef(0)
   const nav = useRef(null)
@@ -62,7 +64,7 @@ export default function Navigation() {
   return (
     <div className="navigation" ref={nav}>
       <a href="/">
-        <img />
+        <img src={logo}/>
       </a>
       <div className="navContent">
         <select className="language">
@@ -72,7 +74,7 @@ export default function Navigation() {
         </select>
         <div className="navOption">
           <TopButtons href="/favourite" title="Избранное" src={heart_border} hoverSrc={heart_full} />
-          <TopButtons href="entry" title="Войти" src={user_border} hoverSrc={user_full} />
+          <TopButtons handleClick={toggleIsReg} title="Войти" src={user_border} hoverSrc={user_full} />
           <TopButtons href="/basket" title="Корзина" src={basket_border} hoverSrc={basket_full} />
           <TopButtons href="/delivery" title="Доставка" src={delivery_border} hoverSrc={delivery_full} />
         </div>

@@ -1,18 +1,18 @@
 .logIn {
   width: 350px;
   padding: .5rem 1%;
-  margin-top: 300px;
+  // margin-top: 300px;
   background-color: white;
   border: 3px black solid;
   border-radius: 30px;
-  position: absolute;
-  // top: 50%;
+  position: fixed;
+  top: 500px;
   left: 50%;
   transform: translate(-50%, -50%)
 }
 
 .membrana {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   background-color:rgba(0, 0, 0, 0.5);
   position: absolute;

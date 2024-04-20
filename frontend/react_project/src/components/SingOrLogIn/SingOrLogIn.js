@@ -12,6 +12,14 @@ import Submit from './submit/submit';
 export default function SignOrLogIn() {
   let [itIsSing, toggleFormStatus] = useState(true)
 
+  function disableScroll() {
+    let scrollTop = window.scrollY
+    window.onscroll = () => {
+      console.log(scrollTop)
+      window.scrollTo(window.scrollX, scrollTop)
+    }
+  } disableScroll()
+
   function toggleStatus() {
     toggleFormStatus(!itIsSing)
     console.log("isIsSing?:" ,itIsSing)
