@@ -1,68 +1,101 @@
-
 .navigation {
-    width: 100%;
-    height: 100px;
-    padding: 0 350px;
-    transition: transform .5s;
-    background-color: var(--primary-color);
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: auto;
+  overflow:auto; 
+  padding: 10px 350px 0 350px;
+  transition: transform .5s;
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: 10px;
+  }
 }
 
-.navigation_hidden {
-    transform: scale(1, 0);
+.siteNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navContent {
-    display: flex;
-    align-items: center;
-
-    // * {
-    //   margin-right: 10px;
-    // }
+  display: flex;
+  align-items: center;
 }
 
 .language {
-    margin-right: 20px;
-    border: none;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 18px;
-    font-weight: 300;
+  margin-right: 20px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .favourite {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .navOption {
-    display: flex;
-    margin-right: 50px;
+  margin-right: 50px;
+  display: flex;
 }
 
 .topButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  h2 {
+    margin-top: 2px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.catalogNav {
+  margin: 0;
+  // position: absolute;
+  max-height: 100%;
+  overflow-y: hidden;
+  z-index: 7;
+  transition: max-height .5s linear;
+  display: flex;
+  justify-content: center;
+   
+  li {
     &:not(:last-child) {
-      margin-right: 20px;
+      margin-right: 1rem;
+    }
+    padding: 4px 6px;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 5px;
     }
 
     img {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
     }
-
-    h2 {
-        margin-top: 5px;
-        color: white;
-        font-size: 18px;
-        font-weight: 500;
-    }
+  }
 }
