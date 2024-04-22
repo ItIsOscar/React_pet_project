@@ -18,7 +18,6 @@ export default function PasswordInput() {
   function togglePasswordVisible(e) {
     e.preventDefault()
     status == "password" ? toggleToVisible() : toggleToHide()
-    console.log(status, statusText)
   }
   
   return (

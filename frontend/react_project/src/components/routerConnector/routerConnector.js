@@ -4,7 +4,7 @@ import Basement from "../subComponents/basement/basement";
 import { useState } from "react";
 import SignOrLogIn from "../SingOrLogIn/SingOrLogIn";
 
-export default function RouterConnector() {
+export default function Body() {
   let [isReg, setIsReg] = useState(false)
   function toggleIsReg() {
     setIsReg(!isReg)
@@ -12,9 +12,9 @@ export default function RouterConnector() {
 
   return (
     <div>
-      <Navigation toggleIsReg={toggleIsReg}/>
+      <Navigation openAuthForm={toggleIsReg}/>
       <Outlet />
-      {isReg && <SignOrLogIn />}
+      {isReg && <SignOrLogIn closeAuthForm={toggleIsReg}/>}
       <Basement />
     </div>
   )

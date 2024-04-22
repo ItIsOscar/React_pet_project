@@ -75,7 +75,7 @@ app.get('/api/productList/all', (req, res) => {
           value: 12000000,
           currency: "сум",
         },
-        seller: users[0],
+        seller: 1,
         characteristics: [
           {type: "status",  value: "б/у" },
           {type: "color", value: "green"},
@@ -91,7 +91,7 @@ app.get('/api/productList/all', (req, res) => {
           value: 12000000,
           currency: "сум"
         },
-        seller: users[0],
+        seller: 1,
         characteristics: [
           {type: "status",  value: "б/у" },
           {type: "color", value: "green"},
@@ -107,7 +107,7 @@ app.get('/api/productList/all', (req, res) => {
           value: 12000000,
           currency: "сум"
         },
-        seller: users[0],
+        seller: 1,
         characteristics: [
           {type: "status",  value: "б/у" },
           {type: "color", value: "green"},

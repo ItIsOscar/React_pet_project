@@ -8,7 +8,6 @@ export default function App() {
 
   document.addEventListener("keydown", (e) => {
     if(e.key == "t") {
-      console.log("change")
       changeForm(formOfProduct == "line" ? "squad" : "line")
     }
   })
