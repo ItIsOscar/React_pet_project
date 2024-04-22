@@ -52,7 +52,6 @@ export default function Filters() {
       e.preventDefault()
       let formData = new FormData(e.target)
 
-      console.log(formData)
       fetch("", {
           method: "POST",
           body: formData

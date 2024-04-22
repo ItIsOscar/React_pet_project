@@ -4,7 +4,7 @@ import { useRouteError } from "react-router-dom"
 
 export default function Page404() {
   const error = useRouteError()
-  console.log(error)
+  
   return (
     <>
       <div className="P404">

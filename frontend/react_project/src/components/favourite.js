@@ -3,6 +3,9 @@ import Title from "./subComponents/shared/title/title"
 
 import { useLoaderData } from "react-router"
 
+import userMock from "../shared/mock/users/user.methods.mock"
+import productsMock from "../shared/mock/products/prouduct.methods.mock"
+
 function CheckBox({children, value, name, ischecked = false}) {
   return (
     <>
@@ -42,11 +45,16 @@ function LineSelector() {
 
 export default function Favourite() {
   const products = useLoaderData()
+  let favoriteList = []
+  userMock.user.favourite.forEach(inx => {
+    favoriteList.push(productsMock.products[inx])
+  })
+
   return (
     <div className="content">
       <Title>Избранное</Title>
       <LineSelector />
-      <ProductList status={"line"} list={products}/>
+      <ProductList status={"line"} list={favoriteList}/>
       <div className="recommend">
         <h2>Подойдет также</h2>
         <ProductList status={"line"} list={products}/>

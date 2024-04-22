@@ -6,7 +6,6 @@ import Title from "../subComponents/shared/title/title";
 import { useLoaderData } from "react-router"
 
 function BuyPanel({products}) {
-  console.log(products)
   let totalCost = 0
   products.forEach(element => {
     totalCost += element.cost.value
@@ -49,7 +48,7 @@ function BuyPanel({products}) {
 
 export default function Basket() {
   const products = useLoaderData()
-  console.log(products)
+
   return (
     <>
       <div className="content">

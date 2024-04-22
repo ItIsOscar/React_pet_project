@@ -9,20 +9,18 @@ import Submit from './submit/submit';
 
 
 
-export default function SignOrLogIn() {
+export default function SignOrLogIn({ closeAuthForm }) {
   let [itIsSing, toggleFormStatus] = useState(true)
 
   function disableScroll() {
     let scrollTop = window.scrollY
     window.onscroll = () => {
-      console.log(scrollTop)
       window.scrollTo(window.scrollX, scrollTop)
     }
   } disableScroll()
 
   function toggleStatus() {
     toggleFormStatus(!itIsSing)
-    console.log("isIsSing?:" ,itIsSing)
   }
 
   function validationData(form) {
@@ -41,38 +39,15 @@ export default function SignOrLogIn() {
     })
     allUsersJson.then(result => {
       let allUsers = result.json()
-     console.log(allUsers)
     }) 
-    // Надо исправить
-    // if(itIsSing) {
-    //   fetch("http://localhost:3000/", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       gmail: FORM.gmail.value,
-    //       password: FORM.password.value,
-    //     })  
-    //   })
-    // } else if(validationData(FORM)) {
-    //   fetch("http://localhost:3000/", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       gmail: FORM.gmail.value,
-    //       password: FORM.password.value,
-    //       spam: FORM.spam.checked,
-    //       virus: FORM.virus.checked,
-    //     })  
-    //   })
-    // }
-    // 1 >>
-
   }
 
   return (
     <>
-      <div className='membrana'></div>
+      <div className='membrana' onClick={closeAuthForm}></div>
       <form className='logIn' name= "form" onSubmit={sendData} id = "form">
         <Inputs itIsSing = {itIsSing} toggleStatus = {toggleStatus} />
-        {!itIsSing && <Captcha /> }
+        {/* {!itIsSing && <Captcha /> } */}
         {!itIsSing && <Anceta /> }
         <Submit itIsSing = {itIsSing}/>
       </form>

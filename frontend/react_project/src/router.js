@@ -9,7 +9,7 @@ import ProductCard from "./components/productCard/productCard";
 import Profile from "./components/profile/profile";
 import SignOrLogIn from "./components/SingOrLogIn/SingOrLogIn";
 import Page404 from "./components/page404/page404";
-import RouterConnector from "./components/routerConnector/routerConnector";
+import Body from "./components/routerConnector/routerConnector";
 
 
 async function getData(URL) {
@@ -22,7 +22,7 @@ async function getData(URL) {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RouterConnector />,
+    element: <Body />,
     errorElement: <Page404 />,
     children: [
       {
@@ -58,9 +58,5 @@ const router = createBrowserRouter([
       },
     ]
   },
-  {
-    path: "/*/entry",
-    element: <RouterConnector />
-  }
 ])
 export default router

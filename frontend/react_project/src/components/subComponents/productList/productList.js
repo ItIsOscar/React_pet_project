@@ -5,8 +5,7 @@ import SquadCard from "../shared/squadCardProduct/squadCardProduct"
 import "./productList.scss"
 
 export default function ProductList({status, list}) {
-
-  let productsJSX = list.map((obj, inx) => {  
+  let productsJSX = list.map((obj, inx) => {
     if(status == "line" ) {
       return <LineCard product={obj} key={inx} />
     } else {

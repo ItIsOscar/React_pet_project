@@ -1,22 +1,30 @@
+import "./lineCard.scss"
 import { Link } from "react-router-dom"
 import { Subject } from 'rxjs'
-import "./lineCard.scss"
 import { useState } from "react"
 
+import userMock from "../../../../shared/mock/users/user.methods.mock"
+
 export default function LineCard({product}) {
-  // let [isfavourite, setIsFavourite] = useState(false)
+  let [isfavourite, setIsFavourite] = useState(false)
+
+  let seller = userMock.user
+
   let characteristicsXJS = product.characteristics.map((el) => (
     <h4 key={el.type}>{el.value}</h4>
   ))
-  let isfavourite = new Subject()
-  isfavourite.subscribe((value) => {
-    
-  })
-  function setClick(e) {
+
+  function stopPropagation(e) {
     e.stopPropagation()
     e.preventDefault()
-    isfavourite.next(true)
   }
+
+  function setFavourite(e) {
+    stopPropagation(e)
+    setIsFavourite(!isfavourite)
+    userMock.setFavourite(product.id, isfavourite)
+  }
+
   return (
     <Link to={"/cardProduct/" + product.id} className="lineCard">
       <div className="pic_info">
@@ -24,15 +32,15 @@ export default function LineCard({product}) {
         <ul>
           <li>{product.name}</li>
           <li>{product.cost.value + " " + product.cost.currency}</li>
-          <li>{product.seller.name}</li>
+          <li>{seller.name}</li>
         </ul>
       </div>
       <div className="characteristics">
         {characteristicsXJS}
       </div>
       <button className={`but ${isfavourite ? "active" : ""}`} 
-      onClick={setClick}>
-
+      onClick={setFavourite}>
+        <img />
       </button>
     </Link>
   )
