@@ -2,6 +2,8 @@ import "./lineCard.scss"
 import { Link } from "react-router-dom"
 import { Subject } from 'rxjs'
 import { useState } from "react"
+import heart_p_b from "../../../../assets/heart_p_b.svg"
+import heart_p_f from "../../../../assets/heart_p_f.svg"
 
 import userMock from "../../../../shared/mock/users/user.methods.mock"
 
@@ -38,9 +40,9 @@ export default function LineCard({product}) {
       <div className="characteristics">
         {characteristicsXJS}
       </div>
-      <button className={`but ${isfavourite ? "active" : ""}`} 
+      <button className={`but ${isfavourite ? "active" : "unActive"}`} 
       onClick={setFavourite}>
-        <img />
+        <img src={isfavourite ? heart_p_f : heart_p_b}/>
       </button>
     </Link>
   )
