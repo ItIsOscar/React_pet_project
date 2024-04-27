@@ -24,6 +24,14 @@ const PRODUCT_LIST = [
       value: 12000000,
       currency: "сум",
     },
+    description: 
+      `Moshina modeli:# Spark Pozitsiya: Avtomat
+      Kraska: Toza
+      Rangi: Oq
+      Yil: 2022
+      Probeg: 42.000Km
+      Yoqilg i: Benzin
+      Narxi: 10.800$-= Kelishamiz=-`,
     seller: 1,
     characteristics: [
       {type: "status",  value: "б/у" },
@@ -34,6 +42,30 @@ const PRODUCT_LIST = [
   },
   {
     id: 1,
+    pic: "https://carsweek.ru/upload/resize_cache/iblock/63a/1200_900_1/63a847f13331ac3da043716975e285a0.jpg",
+    name: "Damaz",
+    cost: {
+      value: 56999999,
+      currency: "сум"
+    },
+    description: 
+      `Moshina modeli:# Spark Pozitsiya: Avtomat
+      Kraska: Toza
+      Rangi: Oq
+      Yil: 2022
+      Probeg: 42.000Km
+      Yoqilg i: Benzin
+      Narxi: 10.800$-= Kelishamiz=-`,
+    seller: 0,
+    characteristics: [
+      {type: "status",  value: "б/у" },
+      {type: "color", value: "white"},
+      {type: "transmissionType", value: "12 LMBA"}
+    ],
+    comments: comments
+  },
+  {
+    id: 2,
     pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
     name: "Chevrolet Spark",
     cost: {
@@ -50,11 +82,12 @@ const PRODUCT_LIST = [
   },
   {
     id: 2,
-    pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
-    name: "Chevrolet Spark",
+    pic: "https://auto.ironhorse.ru/wp-content/uploads/2015/09/nexia-r3-550x300.jpg",
+    name: "Ravon",
+    description: "",
     cost: {
-      value: 12000000,
-      currency: "сум"
+      value: 4000,
+      currency: "Долларов"
     },
     seller: 1,
     characteristics: [

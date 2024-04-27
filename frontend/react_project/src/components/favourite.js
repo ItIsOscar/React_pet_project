@@ -49,7 +49,7 @@ export default function Favourite() {
   userMock.user.favourite.forEach(inx => {
     favoriteList.push(productsMock.products[inx])
   })
-
+  
   return (
     <div className="content">
       <Title>Избранное</Title>

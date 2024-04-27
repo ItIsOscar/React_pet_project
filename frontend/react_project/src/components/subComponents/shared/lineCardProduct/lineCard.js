@@ -1,6 +1,6 @@
 import "./lineCard.scss"
 import { Link } from "react-router-dom"
-import { Subject } from 'rxjs'
+import { Subject, debounceTime } from 'rxjs'
 import { useState } from "react"
 import heart_p_b from "../../../../assets/heart_p_b.svg"
 import heart_p_f from "../../../../assets/heart_p_f.svg"
@@ -21,10 +21,19 @@ export default function LineCard({product}) {
     e.preventDefault()
   }
 
+  let handleClick = new Subject()
+
+  handleClick.pipe(
+    debounceTime(3000)
+  ).subscribe(value => {
+    console.log(value)
+    // setIsFavourite(value)
+  })
+
   function setFavourite(e) {
     stopPropagation(e)
     setIsFavourite(!isfavourite)
-    userMock.setFavourite(product.id, isfavourite)
+    // userMock.setFavourite(product.id, isfavourite)
   }
 
   return (
@@ -41,7 +50,10 @@ export default function LineCard({product}) {
         {characteristicsXJS}
       </div>
       <button className={`but ${isfavourite ? "active" : "unActive"}`} 
-      onClick={setFavourite}>
+        onClick={e => {
+          setFavourite(e)
+          handleClick.next(!isfavourite) 
+        }}>
         <img src={isfavourite ? heart_p_f : heart_p_b}/>
       </button>
     </Link>
