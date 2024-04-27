@@ -100,6 +100,23 @@ const PRODUCT_LIST = [
       {type: "transmissionType", value: "12 LMBA"}
     ],
     comments: comments
+  },
+  {
+    id: 2,
+    pic: "https://auto.ironhorse.ru/wp-content/uploads/2015/09/nexia-r3-550x300.jpg",
+    name: "Ravon",
+    description: "",
+    cost: {
+      value: 4000,
+      currency: "Долларов"
+    },
+    seller: 1,
+    characteristics: [
+      {type: "status",  value: "б/у" },
+      {type: "color", value: "green"},
+      {type: "transmissionType", value: "12 LMBA"}
+    ],
+    comments: comments
   }
 ]
 export default PRODUCT_LIST
