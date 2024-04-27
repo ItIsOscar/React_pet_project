@@ -11,6 +11,13 @@ import delivery_full from "../../../assets/delivery_full.svg"
 import basket_border from "../../../assets/basket_border.svg"
 import basket_full from "../../../assets/basket_full.svg"
 import { useRef, useState, forwardRef } from "react"
+import Search from "../../subComponents/filters/search/search"
+
+import mobile from "../../../assets/mobile.svg"
+import plant from "../../../assets/plant.png"
+import car from "../../../assets/car.png"
+import drill from "../../../assets/drill.png"
+
 
 function SiteNavButton({ href, hoverSrc, src, title, handleClick = null}) {
   let [isHover, setHover] = useState(false)
@@ -52,11 +59,12 @@ function SiteLinks({ openAuthForm }) {
       <a href="/">
         <img src={logo}/>
       </a>
+      <Search />
       <div className="navContent">
         <LanguageSelector />
         <div className="navLinks">
-          <SiteNavButton href="/favourite" title="Избранное" src={heart_border} hoverSrc={heart_full} />
           <SiteNavButton handleClick={openAuthForm} title="Войти" src={user_border} hoverSrc={user_full} />
+          <SiteNavButton href="/favourite" title="Избранное" src={heart_border} hoverSrc={heart_full} />
           <SiteNavButton href="/basket" title="Корзина" src={basket_border} hoverSrc={basket_full} />
           <SiteNavButton href="/delivery" title="Доставка" src={delivery_border} hoverSrc={delivery_full} />
         </div>
@@ -68,9 +76,14 @@ function SiteLinks({ openAuthForm }) {
 const CatalogLinks = forwardRef(({}, ref) => {
   return (
     <ul className="catalogNav" ref={ref}>
-      <CatalogNavButton pic="">Электоника</CatalogNavButton>
-      <CatalogNavButton pic="">Машины</CatalogNavButton>
-      <CatalogNavButton pic="">Игрушки</CatalogNavButton>
+      <CatalogNavButton pic="https://e7.pngegg.com/pngimages/478/255/png-clipart-computer-icons-small-icon-text-share-icon.png">Электоника</CatalogNavButton>
+      <CatalogNavButton pic={car}>Машины</CatalogNavButton>
+      {/* <CatalogNavButton >Игрушки</CatalogNavButton> */}
+      <CatalogNavButton pic={mobile}>Электроника</CatalogNavButton>
+      <CatalogNavButton pic={drill}>Инструменты</CatalogNavButton>
+      <CatalogNavButton pic={plant}>Мебель</CatalogNavButton>
+      {/* <CatalogNavButton >Одежда</CatalogNavButton> */}
+      {/* <CatalogNavButton >Продукты</CatalogNavButton> */}
     </ul>
   )
 })
@@ -100,10 +113,12 @@ export default function Navigation({ openAuthForm }) {
     switch(visabilityStatus) {
       case "fullHidden":
         nav.current.style.transform = "translate(0, -100%)"
-        catalogNav.current.style.transform = "translate(0, -500%)"
+        catalogNav.current.style.marginBottom = "0px"
+        catalogNav.current.style.maxHeight = "0px"
         break
       case "fullVisibly":
-        catalogNav.current.style.transform = "translate(0, 0)"
+        catalogNav.current.style.marginBottom = "8px"
+        catalogNav.current.style.maxHeight = "100%"
       case "linksOnly":
         nav.current.style.transform = "translate(0, 0)"
         break
