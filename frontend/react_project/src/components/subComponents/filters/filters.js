@@ -59,7 +59,7 @@ export default function Filters() {
     } 
   return (
       <form onSubmit={sendData}>
-          <Search />
+          {/* <Search /> */}
           <MainFilters />  
           <LineFilter />
       </form>
