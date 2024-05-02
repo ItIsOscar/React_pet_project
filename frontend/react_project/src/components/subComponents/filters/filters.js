@@ -9,23 +9,33 @@ function MainFilters() {
     {
       title: "Марки",
       name: "mark",
-      values: ["All" ,"skoda", "BMW", "sparkle", "lamborghini"]
+      values: ["all" ,"skoda", "BMW", "sparkle", "lamborghini"],
+      active: "skoda"
     },
     {
       title: "Состояние",
       name: "Status",
-      values: ["All" ,"B/y", "New", "Broken"]
+      values: ["all" ,"B/y", "New", "Broken"],
+      active: "All"
     }
   ]
 
   const rangerData = [
     {
       title: "Цена",
-      name: "cost"
+      name: "cost",
+      value: {
+        from: 0,
+        to: 1000,
+      }
     },
     {
       title: "Размер",
-      name: "size"
+      name: "size",
+      value: {
+        from: 0,
+        to: 1000,
+      }
     }
   ]
   
@@ -34,7 +44,7 @@ function MainFilters() {
   ))
   
   let rangerFilters = rangerData.map((obj) => (
-    <RangeFilter title={obj.title} name={obj.name} key={obj.name}/>
+    <RangeFilter title={obj.title} name={obj.name} value={obj.value} key={obj.name}/>
   ))
   
   return (
@@ -42,19 +52,26 @@ function MainFilters() {
         {rangerFilters}
         {selectorFilters}
       </div>
-
   )
 }
 
 export default function Filters() {
-
   function sendData(e) {
       e.preventDefault()
       let formData = new FormData(e.target)
+      let fetchData = new FormData()
+      let entriesData = formData.entries()
+
+      for(let [key, value] of entriesData) {
+        if(value != 0 && value != "all") {
+          // console.log(key, value)
+          fetchData.append(key, value)
+        }
+      }
 
       fetch("", {
           method: "POST",
-          body: formData
+          body: fetchData
       })
     } 
   return (

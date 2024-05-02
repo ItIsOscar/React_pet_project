@@ -17,6 +17,7 @@ import mobile from "../../../assets/mobile.svg"
 import plant from "../../../assets/plant.png"
 import car from "../../../assets/car.png"
 import drill from "../../../assets/drill.png"
+const CLOCK_IMG = "https://e7.pngegg.com/pngimages/478/255/png-clipart-computer-icons-small-icon-text-share-icon.png"
 
 
 function SiteNavButton({ href, hoverSrc, src, title, handleClick = null}) {
@@ -76,7 +77,7 @@ function SiteLinks({ openAuthForm }) {
 const CatalogLinks = forwardRef(({}, ref) => {
   return (
     <ul className="catalogNav" ref={ref}>
-      <CatalogNavButton pic="https://e7.pngegg.com/pngimages/478/255/png-clipart-computer-icons-small-icon-text-share-icon.png">Электоника</CatalogNavButton>
+      <CatalogNavButton pic={CLOCK_IMG}>Электоника</CatalogNavButton>
       <CatalogNavButton pic={car}>Машины</CatalogNavButton>
       {/* <CatalogNavButton >Игрушки</CatalogNavButton> */}
       <CatalogNavButton pic={mobile}>Электроника</CatalogNavButton>
