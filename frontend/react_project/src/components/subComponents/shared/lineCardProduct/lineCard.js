@@ -1,7 +1,7 @@
 import "./lineCard.scss"
 import { Link } from "react-router-dom"
-import { Subject, debounceTime } from 'rxjs'
-import { useState } from "react"
+import { Subject, debounceTime, throttleTime } from 'rxjs'
+import { useState, useRef } from "react"
 import heart_p_b from "../../../../assets/heart_p_b.svg"
 import heart_p_f from "../../../../assets/heart_p_f.svg"
 
@@ -10,8 +10,9 @@ import userMock from "../../../../shared/mock/users/user.methods.mock"
 export default function LineCard({product}) {
   let [isfavourite, setIsFavourite] = useState(false)
 
-  let seller = userMock.user
+  let idTimerDefense = useRef(null)
 
+  let seller = userMock.user
   let characteristicsXJS = product.characteristics.map((el) => (
     <h4 key={el.type}>{el.value}</h4>
   ))
@@ -21,19 +22,17 @@ export default function LineCard({product}) {
     e.preventDefault()
   }
 
-  let handleClick = new Subject()
-
-  handleClick.pipe(
-    debounceTime(3000)
-  ).subscribe(value => {
-    console.log(value)
-    // setIsFavourite(value)
-  })
+  function changeFavouriteList() {
+    userMock.setFavourite(product.id, isfavourite)
+  }
 
   function setFavourite(e) {
     stopPropagation(e)
     setIsFavourite(!isfavourite)
-    // userMock.setFavourite(product.id, isfavourite)
+    clearTimeout(idTimerDefense.current)
+    idTimerDefense.current = setTimeout(() => {
+      changeFavouriteList()
+    }, 600);
   }
 
   return (
@@ -52,7 +51,6 @@ export default function LineCard({product}) {
       <button className={`but ${isfavourite ? "active" : "unActive"}`} 
         onClick={e => {
           setFavourite(e)
-          handleClick.next(!isfavourite) 
         }}>
         <img src={isfavourite ? heart_p_f : heart_p_b}/>
       </button>
