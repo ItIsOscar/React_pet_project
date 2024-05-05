@@ -1,0 +1,86 @@
+[
+  {
+    "id": 0,
+    "pic": "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+    "name": "Chevrolet Spark",
+    "cost": {
+      "value": 12000000,
+      "currency": "сум"
+    },
+    "seller": 1,
+    "characteristics": [
+      {
+        "type": "status",
+        "value": "б/у"
+      },
+      {
+        "type": "color",
+        "value": "green"
+      },
+      {
+        "type": "transmissionType",
+        "value": "12 LMBA"
+      }
+    ],
+    "comments": [
+        "commnet-32213-5421-4214",
+        "comment-53255-3252-5325"
+    ]
+  },
+  {
+    "id": 1,
+    "pic": "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+    "name": "Chevrolet Spark",
+    "cost": {
+      "value": 12000000,
+      "currency": "сум"
+    },
+    "seller": 1,
+    "characteristics": [
+      {
+        "type": "status",
+        "value": "б/у"
+      },
+      {
+        "type": "color",
+        "value": "green"
+      },
+      {
+        "type": "transmissionType",
+        "value": "12 LMBA"
+      }
+    ],
+    "comments": [
+        "commnet-32213-5421-4214",
+        "comment-53255-3252-5325"
+    ]
+  },
+  {
+    "id": 2,
+    "pic": "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
+    "name": "Chevrolet Spark",
+    "cost": {
+      "value": 12000000,
+      "currency": "сум"
+    },
+    "seller": 1,
+    "characteristics": [
+      {
+        "type": "status",
+        "value": "б/у"
+      },
+      {
+        "type": "color",
+        "value": "green"
+      },
+      {
+        "type": "transmissionType",
+        "value": "12 LMBA"
+      }
+    ],
+    "comments": [
+        "commnet-32213-5421-4214",
+        "comment-53255-3252-5325"
+    ]
+  }
+]

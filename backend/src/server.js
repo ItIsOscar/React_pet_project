@@ -1,10 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import apiRouter from './api/api.router.js';
 
 
 const app = express();
 
 app.use(bodyParser.json({ type: 'application/json' }));
+app.use('/api', apiRouter);
 
 const users = [
   {
@@ -12,14 +14,12 @@ const users = [
     pic: null,
     number: "+99804525409",
     discription: "РАвыаоыврыфпвравфыа",
-    // products: products
   },
   {
     name: "Ваня",
     pic: null,
     number: "+9989506409",
     discription: "РАвыаоыврыфпвравфыа",
-    // products: null
   }
 ]
 

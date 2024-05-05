@@ -1,2 +1,5 @@
+### GET ALL USERS
+GET http://localhost:2000/api/users/getAll
 
-GET http://localhost:3000/api/users/all
+### GET ALL PRODUCTS
+GET http://localhost:2000/api/products/getAll
