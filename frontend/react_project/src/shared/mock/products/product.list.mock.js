@@ -113,6 +113,7 @@ const PRODUCT_LIST = [
     seller: 1,
     characteristics: [
       {type: "status",  value: "б/у" },
+      {type: "mark",  value: "ravon" },
       {type: "color", value: "green"},
       {type: "transmissionType", value: "12 LMBA"}
     ],

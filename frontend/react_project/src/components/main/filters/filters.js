@@ -1,5 +1,4 @@
 import "./filters.scss"
-import Search from "./search/search"
 import RangeFilter from "./rangeFilter/rangeFilter"
 import SelectorFilter from "./selectorFilter/selectorFilter"
 import LineFilter from "./lineFilter/lineFilter" 

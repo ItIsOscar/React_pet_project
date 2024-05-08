@@ -2,8 +2,8 @@ import "./lineCard.scss"
 import { Link } from "react-router-dom"
 import { Subject, debounceTime, throttleTime } from 'rxjs'
 import { useState, useRef } from "react"
-import heart_p_b from "../../../../assets/heart_p_b.svg"
-import heart_p_f from "../../../../assets/heart_p_f.svg"
+import heart_p_b from "../../../../shared/assets/heart_p_b.svg"
+import heart_p_f from "../../../../shared/assets/heart_p_f.svg"
 
 import userMock from "../../../../shared/mock/users/user.methods.mock"
 

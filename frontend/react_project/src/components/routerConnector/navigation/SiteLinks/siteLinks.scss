@@ -1,0 +1,59 @@
+.siteNav {
+  margin: 6px 0 16px 0;
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: 44px;
+  margin-left: 1rem;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+}
+
+.language {
+  margin-right: 20px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.favourite {
+  background-color: var(--primary-color);
+}
+
+.navLinks {
+  margin-right: 50px;
+  display: flex;
+}
+
+.topButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  img {
+    width: 25px;
+    height: 25px;
+  }
+
+  h2 {
+    margin-top: 2px;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
