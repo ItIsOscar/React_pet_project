@@ -1,7 +1,7 @@
 
 
-import LineCard from "../shared/lineCardProduct/lineCard"
-import SquadCard from "../shared/squadCardProduct/squadCardProduct"
+import LineCard from "./lineCardProduct/lineCard"
+import SquadCard from "./squadCardProduct/squadCardProduct"
 import "./productList.scss"
 
 export default function ProductList({status, list}) {

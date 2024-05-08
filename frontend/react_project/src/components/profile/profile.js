@@ -2,7 +2,7 @@ import "./profile.scss"
 
 import Comments from "../subComponents/comment/comment";
 import ProductList from "../subComponents/productList/productList";
-import Title from "../subComponents/shared/title/title";
+import Title from "../subComponents/title/title";
 
 export default function Profile({user}) {
   return (

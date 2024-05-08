@@ -1,7 +1,7 @@
 import {
   createBrowserRouter,
 } from "react-router-dom";
-import Main from "./components/main";
+import Main from "./components/main/main";
 import Basket from "./components/basket/basket";
 import Delivery from "./components/delivery";
 import Favourite from "./components/favourite";
@@ -53,9 +53,20 @@ const router = createBrowserRouter([
       },
       {
         path: "cardProduct/:id",
-        loader: ({ params }) => getData("http://localhost:2000/api/productList/all",),
+        loader: ({ params }) => getData("http://localhost:2000/api/productList/all"),
         element: <ProductCard />
       },
+      {
+        path: "catalog/:type",
+        loader: ({ params }) => {
+          if(params.type == "cars") {
+            return  getData("http://localhost:2000/api/productList/all")
+          } else {
+            return params.type
+          }
+        },
+        element: <Main />
+      }
     ]
   },
 ])

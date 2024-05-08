@@ -1,7 +1,7 @@
 import "./basket.scss"
 
 import ProductList from "../subComponents/productList/productList";
-import Title from "../subComponents/shared/title/title";
+import Title from "../subComponents/title/title";
 
 import { useLoaderData } from "react-router"
 
