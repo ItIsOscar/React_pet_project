@@ -10,10 +10,8 @@ const assignAcrossHeader = (res) => {
 }
 
 const getAll = (req, res) => {
-    const products = JSON.parse(fs.readFileSync(resolve('src', 'db', 'products.txt'), { encoding: 'utf-8' }));
-    const comments = JSON.parse(fs.readFileSync(resolve('src', 'db', 'comments.txt'), { encoding: 'utf-8' }));
-    console.log('PRODUCTS: ', products);
-    console.log('COMMENTS: ', comments);
+    const products = JSON.parse(fs.readFileSync(resolve('db', 'products.txt'), { encoding: 'utf-8' }));
+    const comments = JSON.parse(fs.readFileSync(resolve('db', 'comments.txt'), { encoding: 'utf-8' }));
     products.forEach(product => {
         product.comments = product.comments.map(commentId => {
             return comments.find(comment => comment.id === commentId);

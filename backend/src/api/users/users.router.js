@@ -10,11 +10,9 @@ const assignAcrossHeader = (res) => {
 }
 
 const getAll = (req, res) => {
-    fs.readFile(resolve('src', 'db', 'users.txt'), 'utf-8', (err, data) => {
-        const users = JSON.parse(data);
-        assignAcrossHeader(res);
-        return res.status(200).json(users);
-    });
+    const users = JSON.parse(fs.readFileSync(resolve('db', 'users.txt'), { encoding: 'utf-8' }));
+    assignAcrossHeader(res);
+    return res.status(200).json(users);
 };
 
 router.get('/getAll', getAll);
