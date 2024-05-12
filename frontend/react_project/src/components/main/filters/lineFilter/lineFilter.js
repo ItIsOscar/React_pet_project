@@ -1,5 +1,6 @@
-import { useRef, useState, forwardRef } from "react"
+import { useRef, useState, forwardRef, useContext } from "react"
 import "./lineFilter.scss"
+import ListStatus from "../../../../shared/controlles/listStatus.controller"
 
 const CheckBox = forwardRef(({children, value, name, onChange, ischecked = false}, ref) => {
   return (
@@ -20,6 +21,7 @@ export default function LineFilter() {
   const secondLabel = useRef(null)
   const thirdLabel = useRef(null)
   const line = useRef(null)
+  let listStatus = useRef(new ListStatus())
 
   function findActiveIndex(allLabes) {
     return allLabes.findIndex((el) => el.el.children[0].checked) //active == to
@@ -84,6 +86,9 @@ export default function LineFilter() {
         <span className="line" ref={line}></span>
       </div>
       <div className="filtersOptions">
+        <button  onClick={listStatus.current.toggleListStatus} type="button" className="toggleStatus">
+          <img />
+        </button>
         <button type="submit">Подвердить фильтры</button>
         <button>Сбросить фильтры</button>
       </div>

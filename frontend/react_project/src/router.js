@@ -10,6 +10,7 @@ import Profile from "./components/profile/profile";
 import SignOrLogIn from "./components/SingOrLogIn/SingOrLogIn";
 import Page404 from "./components/page404/page404";
 import Body from "./components/routerConnector/routerConnector";
+import catalogList from "./shared/mock/catalog/catalog.list.mock";
 
 
 async function getData(URL) {
@@ -17,8 +18,8 @@ async function getData(URL) {
     method: "GET",
   })
   return result.json()
-} 
-
+}
+console.log("GET",getData("http://localhost:2000/api/productList/all"))
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Main />,
-        loader: () => getData("http://localhost:2000/api/productList/all")
+        loader: () =>  catalogList.main
       },
       {
         path: "favourite",
@@ -58,13 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "catalog/:type",
-        loader: ({ params }) => {
-          if(params.type == "cars") {
-            return  getData("http://localhost:2000/api/productList/all")
-          } else {
-            return params.type
-          }
-        },
+        loader: ({ params }) => catalogList[params.type],
         element: <Main />
       }
     ]
