@@ -11,6 +11,16 @@ class UserMethods {
       favouriteList.push(inx)
     }
   }
+  setBasket(inx, isInBasket) {
+    console.log(inx, isInBasket)
+    let basketList = this.user.basket
+    if(isInBasket) {
+      let DeletedinxInList = basketList.findIndex(listInx => listInx == inx)
+      basketList.splice(DeletedinxInList, 1)
+    } else {
+      basketList.push(inx)
+    }
+  }
 }
 let userMock = new UserMethods
 export default userMock

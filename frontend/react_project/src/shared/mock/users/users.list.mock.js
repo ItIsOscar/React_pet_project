@@ -5,7 +5,8 @@ let USERS_LIST = [
     pic: null,
     number: "+99804525409",
     discription: "РАвыаоыврыфпвравфыа",
-    favourite: []
+    favourite: [],
+    basket: []
     // products: products
   },
   {

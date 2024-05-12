@@ -4,6 +4,9 @@ import ProductList from "../subComponents/productList/productList";
 import Title from "../subComponents/title/title";
 
 import { useLoaderData } from "react-router"
+import { useState } from "react";
+import productsMock from "../../shared/mock/products/prouduct.methods.mock";
+import userMock from "../../shared/mock/users/user.methods.mock";
 
 function BuyPanel({products}) {
   let totalCost = 0
@@ -48,12 +51,27 @@ function BuyPanel({products}) {
 
 export default function Basket() {
   const products = useLoaderData()
-
+  let [listStatus, setListStatus] = useState("line")
+  function handleSetListStatus() {
+    let changes
+    if(listStatus == "line") {
+      changes = "squad"
+    } else {
+      changes = "line"
+    }
+    setListStatus(changes)
+    sessionStorage.setItem("lineStatus", changes)
+  }
+  let basketList = []
+  userMock.user.basket.forEach(inx => {
+    console.log(inx)
+    basketList.push(productsMock.products[inx])
+  })
   return (
     <>
       <div className="content">
-        <Title>Корзина</Title>  
-        <ProductList status={"line"} list={products}/>
+        <Title handleListStatus={handleSetListStatus}>Корзина</Title>  
+        <ProductList status={listStatus} list={basketList}/>
       </div>
       <BuyPanel products={products}/>
     </>

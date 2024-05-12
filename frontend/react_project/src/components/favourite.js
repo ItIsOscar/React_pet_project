@@ -45,6 +45,7 @@ function LineSelector() {
 
 export default function Favourite() {
   const products = useLoaderData()
+  console.log(products)
   let favoriteList = []
   userMock.user.favourite.forEach(inx => {
     favoriteList.push(productsMock.products[inx])

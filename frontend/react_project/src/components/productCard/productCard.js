@@ -1,8 +1,11 @@
 import "./productCard.scss"
 import Comments from "../subComponents/comment/comment"
 import { Link, useLoaderData } from "react-router-dom"
+import userMock from "../../shared/mock/users/user.methods.mock"
+import { useState } from "react"
 
 function ProductTitle({product}) {
+  
   let characteristics = product.characteristics.map((el, inx) => (
     <li key={inx}>{el.type + ': ' + el.value}</li>
   ))  
@@ -27,7 +30,15 @@ function Description({description}) {
   )
 }
 
-function Seller({saller}) {
+function Seller({id ,saller}) {
+  let [isInBasket, setIsInBasket] = useState(false)
+
+  function changeOnBasket() {
+    userMock.setBasket(id, isInBasket)
+    console.log(userMock.user)
+    setIsInBasket(!isInBasket)
+  }
+
   return (
     <div className="seller">
       <div>
@@ -35,7 +46,7 @@ function Seller({saller}) {
         <h3>{saller.name}</h3>`${}`
       </div>
       <a href={"tel:" + saller.number}>{saller.number}</a>
-      <button>Написать</button>
+      <button onClick={changeOnBasket}>Написать</button>
     </div>
   )
 }
@@ -59,7 +70,7 @@ export default function ProductCard() {
       <div className="mainBlock">
         <Description description={product.description} />
         <div className="extraOption">
-          <Seller saller={product.seller} />
+          <Seller id={product.id} saller={product.seller} />
           <Location location={product.location}/>
         </div>
       </div>
