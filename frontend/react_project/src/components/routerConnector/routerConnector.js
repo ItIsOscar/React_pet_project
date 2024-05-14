@@ -15,7 +15,7 @@ export default function Body() {
   }
 
   return (
-    <div listStatus="line">
+    <div>
       <Navigation openAuthForm={toggleIsReg}/>
       <LineStatusContext.Provider value={"line"}>
         <Outlet />  

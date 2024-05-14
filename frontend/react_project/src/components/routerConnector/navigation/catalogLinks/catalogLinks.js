@@ -15,7 +15,7 @@ const CLOCK_IMG = "https://e7.pngegg.com/pngimages/478/255/png-clipart-computer-
 
 function CatalogNavButton({ children, pic, link }) {
   return (
-    <Link to={`/catalog/${link}`} className="catalogBut">
+    <Link to={`/catalog/${link}`} className="catalogBut" >
       <span>{children}</span>
       <img src={pic} />
     </Link>
@@ -47,7 +47,7 @@ const CatalogLinks = forwardRef(({}, ref) => {
     {
       name: "Электроника",
       pic: mobile,
-      link: "electronics",
+      link: "electronics1",
     },
     {
       name: "Инструменты",
@@ -76,7 +76,7 @@ const CatalogLinks = forwardRef(({}, ref) => {
     }
   ]
   let catalogXJS = catalogList.map(obj => (
-    <CatalogNavButton pic={obj.pic} link={obj.link}>{obj.name}</CatalogNavButton>
+    <CatalogNavButton pic={obj.pic} link={obj.link} key={obj.link}> {obj.name} </CatalogNavButton>
   ))
   return (
     <ul className="catalogNav" ref={ref}>

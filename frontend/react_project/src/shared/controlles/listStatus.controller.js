@@ -1,25 +1,32 @@
+// let status = "line" 
 
-export default class ListStatus {
-  constructor() {
-    if(ListStatus.instance) {
-      return  ListStatus.instance
-    } 
-    ListStatus.instance = this
+class ListStatus {
+  constructor() {}
+  getCurrentValue = () => {
+    return sessionStorage.getItem("listStatus") || "line"
   }
-  currentValue = "line"
-  toggleListStatus() {
-    console.log(this.currentValue)
-    let changes = this.currentValue == "line" ? "squad" : "line"
-    console.log(changes)
-    // sessionStorage.setItem("lineStatus", changes)
+  setState = () => {}
+  toggleListStatus = () => {
+    sessionStorage.setItem("listStatus", this.getCurrentValue() == "line" ? "squad" : "line")
+    this.setState(this.getCurrentValue)
   }
 }
-var listStatusController = {
-  currentValue: "line",
-  toggleListStatus: () => {
-    console.log(this.currentValue)
-    let changes = this.currentValue == "line" ? "squad" : "line"
-    console.log(changes)
-    // sessionStorage.setItem("lineStatus", changes)
-  }
-}
+
+let listStatusController = new ListStatus()
+// Object.freeze(listStatusController)  
+export default listStatusController
+
+// var listStatusController = {
+//   currentValue: "line",
+//   toggleListStatus: () => {
+//     console.log(this.currentValue)
+//     let changes = this.currentValue == "line" ? "squad" : "line"
+//     console.log(changes)
+//     sessionStorage.setItem("lineStatus", changes)
+//   }
+// }
+
+// if(ListStatus.instance) {
+//   return  ListStatus.instance
+// } 
+// ListStatus.instance = this
