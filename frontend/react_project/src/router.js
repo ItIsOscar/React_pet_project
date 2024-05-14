@@ -19,7 +19,6 @@ async function getData(URL) {
   })
   return result.json()
 }
-console.log("GET",getData("http://localhost:2000/api/productList/all"))
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,12 +33,12 @@ const router = createBrowserRouter([
       {
         path: "favourite",
         element: <Favourite />,
-        loader: () => getData("http://localhost:2000/api/productList/all")
+        loader: () => getData("http://localhost:2000/api/products/getAll")
       },
       {
         path: "basket",
         element: <Basket />,
-        loader: () => getData("http://localhost:2000/api/productList/all"),
+        loader: () => getData("http://localhost:2000/api/products/getAll"),
         children: [
           {
             path: "entry",
@@ -50,11 +49,11 @@ const router = createBrowserRouter([
       {
         path: "delivery",
         element: <Delivery />,
-        loader: () => getData("http://localhost:2000/api/productList/all")
+        loader: () => getData("http://localhost:2000/api/products/getAll")
       },
       {
         path: "cardProduct/:id",
-        loader: ({ params }) => getData("http://localhost:2000/api/productList/all"),
+        loader: ({ params }) => getData("http://localhost:2000/api/products/getAll"),
         element: <ProductCard />
       },
       {

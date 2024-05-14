@@ -51,17 +51,6 @@ function BuyPanel({products}) {
 
 export default function Basket() {
   const products = useLoaderData()
-  let [listStatus, setListStatus] = useState("line")
-  function handleSetListStatus() {
-    let changes
-    if(listStatus == "line") {
-      changes = "squad"
-    } else {
-      changes = "line"
-    }
-    setListStatus(changes)
-    sessionStorage.setItem("lineStatus", changes)
-  }
   let basketList = []
   userMock.user.basket.forEach(inx => {
     console.log(inx)
@@ -70,8 +59,8 @@ export default function Basket() {
   return (
     <>
       <div className="content">
-        <Title handleListStatus={handleSetListStatus}>Корзина</Title>  
-        <ProductList status={listStatus} list={basketList}/>
+        <Title>Корзина</Title>  
+        <ProductList status={"list"} list={basketList}/>
       </div>
       <BuyPanel products={products}/>
     </>
