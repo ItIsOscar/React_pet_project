@@ -11,6 +11,7 @@ import SignOrLogIn from "./components/SingOrLogIn/SingOrLogIn";
 import Page404 from "./components/page404/page404";
 import Body from "./components/routerConnector/routerConnector";
 import catalogList from "./shared/mock/catalog/catalog.list.mock";
+import productsMock from "./shared/mock/products/prouduct.methods.mock";
 
 
 async function getData(URL) {
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: "cardProduct/:id",
-        loader: ({ params }) => getData("http://localhost:2000/api/products/getAll"),
+        loader: ({ params }) => productsMock.findProductsById(params.id),
         element: <ProductCard />
       },
       {
