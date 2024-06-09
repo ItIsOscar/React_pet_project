@@ -50,13 +50,7 @@ const PRODUCT_LIST = [
       currency: "сум"
     },
     description: 
-      `Moshina modeli:# Spark Pozitsiya: Avtomat
-      Kraska: Toza
-      Rangi: Oq
-      Yil: 2022
-      Probeg: 42.000Km
-      Yoqilg i: Benzin
-      Narxi: 10.800$-= Kelishamiz=-`,
+      `Damas оснащаются двигателем объёмом 0,8 л мощностью в 38 л.с и механической КПП. В качестве заказного оснащения предлагается кондиционер. Сидения в салоне расположены друг за другом в три ряда по схеме: 2+3+2. Грузоподъёмность - 560 килограмм.[1] Так же выпускается мини-грузовик Labo. Коробка передач — пятиступенчатая механическая. Силовой агрегат расположен продольно, под полом в передней части кузова, привод — на задние колеса.`,
     seller: 0,
     characteristics: [
       {type: "status",  value: "б/у" },
@@ -84,10 +78,10 @@ const PRODUCT_LIST = [
     comments: comments
   },
   {
-    id: 2,
+    id: 3,
     pic: "https://auto.ironhorse.ru/wp-content/uploads/2015/09/nexia-r3-550x300.jpg",
     name: "Ravon",
-    description: "",
+    description: "RAVON Bu ravish 'yur-', 'bor-' maʼnosini anglatadigan tojikcha raftan feʼlining (ТжРС, 322) rav hozirgi zamon asosiga (ТжРС, 317) -on qoʻshimchasini (ТжРС, 543) qoʻshib hosil qilingan boʻlib, 'bir tekisda', 'silliq' maʼnosini anglatadi (OʻTIL, 1,610).",
     cost: {
       value: 4000,
       currency: "Долларов"
@@ -102,7 +96,7 @@ const PRODUCT_LIST = [
     comments: comments
   },
   {
-    id: 2,
+    id: 4,
     pic: "https://auto.ironhorse.ru/wp-content/uploads/2015/09/nexia-r3-550x300.jpg",
     name: "Ravon",
     description: "",

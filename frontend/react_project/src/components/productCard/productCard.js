@@ -62,9 +62,7 @@ function Location({location}) {
 }
 
 export default function ProductCard() {
-  let productList = useLoaderData()
-  console.log(productList)
-  let product = productList[0]
+  let product = useLoaderData()
   return (
     <div className="content productCard">
       <ProductTitle product={product} />

@@ -43,6 +43,16 @@ function LineSelector() {
   )
 }
 
+function Instruction() {
+  return (
+    <div>
+      <h2>У вас нету избранных!</h2>
+      <br />
+      <h3>Чтобы добавить товар в избранное, Нужно нажать на сердце рядом с товаром</h3>
+    </div>
+  )
+}
+
 export default function Favourite() {
   const products = useLoaderData()
   console.log(products)
@@ -50,12 +60,16 @@ export default function Favourite() {
   userMock.user.favourite.forEach(inx => {
     favoriteList.push(productsMock.products[inx])
   })
-  
+  console.log(favoriteList)
   return (
     <div className="content">
       <Title>Избранное</Title>
       <LineSelector />
-      <ProductList status={"line"} list={favoriteList}/>
+      {
+      favoriteList.length != 0 ? 
+        <ProductList status={"line"} list={favoriteList}/> :
+        <Instruction />
+      }
       <div className="recommend">
         <h2>Подойдет также</h2>
         <ProductList status={"line"} list={products}/>

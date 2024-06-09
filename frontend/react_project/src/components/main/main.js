@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router"
 
 import Filters from "./filters/filters"
-import ProductList from "../subComponents/productList/productList"
+import ProductList from "../../subComponents/productList/productList"
 import Banner from "../subComponents/banner/banner"
 
 export default function Main() {

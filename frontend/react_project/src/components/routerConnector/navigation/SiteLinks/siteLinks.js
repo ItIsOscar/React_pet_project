@@ -5,15 +5,15 @@ import { Link } from "react-router-dom"
 import Search from "./search/search"
 
 
-import logo from "../../../../shared/assets/logo.png"
-import heart_border from "../../../../shared/assets/heart_border.svg"
-import heart_full from "../../../../shared/assets/heart_full.svg"
-import user_border from "../../../../shared/assets/user_border.svg"
-import user_full from "../../../../shared/assets/user_full.svg"
-import delivery_border from "../../../../shared/assets/delivery_border.svg"
-import delivery_full from "../../../../shared/assets/delivery_full.svg"
-import basket_border from "../../../../shared/assets/basket_border.svg"
-import basket_full from "../../../../shared/assets/basket_full.svg"
+import logo from "../../shared/assets/logo.png"
+import heart_border from "../../shared/assets/heart_border.svg"
+import heart_full from "../../shared/assets/heart_full.svg"
+import user_border from "../../shared/assets/user_border.svg"
+import user_full from "../../shared/assets/user_full.svg"
+import delivery_border from "../../shared/assets/delivery_border.svg"
+import delivery_full from "../../shared/assets/delivery_full.svg"
+import basket_border from "../../shared/assets/basket_border.svg"
+import basket_full from "../../shared/assets/basket_full.svg"
 
 function SiteNavButton({ href, hoverSrc, src, title, handleClick = null}) {
   let [isHover, setHover] = useState(false)
