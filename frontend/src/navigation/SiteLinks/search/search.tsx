@@ -1,17 +1,49 @@
 import "./search.scss"
-import {FormEvent, RefObject, useRef} from "react"
+import {FormEvent, RefObject, forwardRef, useRef} from "react"
 import { SearchType as FormTypeModel } from "./search.interface"
-const CROSS_ICON = "https://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png"
+
+interface onChangeInterface {
+  onChange: () => void
+} 
+
+const TypeSelector = forwardRef<HTMLSelectElement, onChangeInterface> (({ onChange }, ref) => {
+  let listType: FormTypeModel[] = [new FormTypeModel("goods", "Товары"), new FormTypeModel("sellers", "Продавцы")]
+
+  let typesJSX: JSX.Element[] = listType.map(model => (
+    <option value={model.value}>{model.title}</option>
+  ))
+
+  return (
+    <select name="type" onChange={onChange} ref={ref}>
+      {typesJSX}
+    </select>
+  )
+}) 
+
+const NameInput = forwardRef<HTMLInputElement, {}> (({}, ref) => {
+  return (
+    <div className="inputName">
+      <input name="name" type="text" ref={ref} placeholder="Поиск"></input>
+    </div>
+  )
+})
+
+function ResetNameButton({onClick} : {
+  onClick: () => void
+}) {
+  const CROSS_ICON = "https://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png"
+
+  return (
+    <button type="button" className="resetTypeButton" onClick={onClick}>
+        <img src={CROSS_ICON} />
+      </button>
+  )
+}
 
 export default function Search() {
   const FORM_TYPE: RefObject<HTMLSelectElement> = useRef(null)
   const FORM_NAME: RefObject<HTMLInputElement> = useRef(null)
   
-  let listType: FormTypeModel[] = [new FormTypeModel("goods", "Товары"), new FormTypeModel("sellers", "Продавцы")]
-  let typesJSX: JSX.Element[] = listType.map(model => (
-    <option value={model.value}>{model.title}</option>
-  ))
-
   function fetchType() {
     fetch(`search/${FORM_TYPE.current!.value}/all`, {
       method: "GET",
@@ -28,30 +60,17 @@ export default function Search() {
     })
   }
 
-  function onResetFormName() {
+  function resetFormName() {
     FORM_NAME.current!.value = ""
     fetchNameWithType()
-  }
-  function onSubmitForm(event: FormEvent) {
-    event.preventDefault()
-    fetchNameWithType()
-  }
-  function onChangeFormType(): void {
-    fetchType()
   }
 
   return (
     <form className="searchBar">
-      <select name="type" onChange={onChangeFormType} ref={FORM_TYPE}>
-        {typesJSX}
-      </select>
-      <div className="inputName">
-        <input name="name" type="text" ref={FORM_NAME} placeholder="Поиск"></input>
-      </div>
-      <button type="button" className="resetTypeButton" onClick={onResetFormName}>
-        <img src={CROSS_ICON} />
-      </button>
-      <button className="submitButton" onClick={event => onSubmitForm(event)}>Поиск</button>
+      <TypeSelector onChange={fetchType} ref={FORM_TYPE}/>
+      <NameInput ref={FORM_NAME}/>
+      <ResetNameButton onClick={resetFormName} />
+      <button type="button" className="submitButton" onClick={fetchNameWithType}>Поиск</button>
     </form>
       
   )
