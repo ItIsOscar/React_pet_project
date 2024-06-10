@@ -1,40 +1,40 @@
 import { strict } from "assert"
 import "./search.scss"
-import {FormEvent, RefObject, useEffect, useRef} from "react"
-import { FormSeach, FormSearchDataInterface, SearchType } from "./search.interface"
+import {FormEvent, RefObject, useRef} from "react"
+import { SearchType as FormTypeModel } from "./search.interface"
 
 export default function Search() {
-  let formSearch: RefObject<HTMLFormElement> = useRef(null) 
-
-  let FormSearchData: FormSearchDataInterface
-  useEffect(() => {
-    FormSearchData = new FormSeach(new FormData(formSearch.current!))
-  }, [])
+  const FORM_TYPE: RefObject<HTMLSelectElement> = useRef(null)
+  const FORM_NAME: RefObject<HTMLInputElement> = useRef(null)
   
-  let listType: SearchType[] = [new SearchType("goods", "Товары"), new SearchType("sellers", "Продавцы")]
-  let typesJSX: JSX.Element[] = listType.map((model) => (
+  let listType: FormTypeModel[] = [new FormTypeModel("goods", "Товары"), new FormTypeModel("sellers", "Продавцы")]
+  let typesJSX: JSX.Element[] = listType.map(model => (
     <option value={model.value}>{model.title}</option>
   ))
   
   function fetchType() {
-    fetch(`search/${FormSearchData.type}/all`, {
+    fetch(`search/${FORM_TYPE.current!.value}/all`, {
       method: "GET",
     })
   }
 
   function fetchNameWithType(event: FormEvent) {
     event.preventDefault()  
-    fetch(`search/${FormSearchData.type}/${FormSearchData.validaFetchName}`, {
+    type validateFetchString = string
+    const formValidateName: validateFetchString = 
+      FORM_NAME.current!.value.trim().split(" ").filter(word => word != "").join(" ")
+
+    fetch(`search/${FORM_TYPE.current!.value}/${formValidateName}`, {
       method: "GET",
     })
   }
   return (
-    <form className="searchBar" onSubmit={fetchNameWithType} ref={formSearch}>
-      <select name="type" onChange={fetchType}>
+    <form className="searchBar" onSubmit={fetchNameWithType}>
+      <select name="type" onChange={fetchType} ref={FORM_TYPE}>
         {typesJSX}
       </select>
       <div className="searchInput">
-        <input name="name" type="text" placeholder="Поиск"></input>
+        <input name="name" type="text" ref={FORM_NAME} placeholder="Поиск"></input>
       </div>
       <button type="submit">Поиск</button>
     </form>
