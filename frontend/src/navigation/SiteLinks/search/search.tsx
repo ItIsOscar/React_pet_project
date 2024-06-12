@@ -50,6 +50,7 @@ export default function Search() {
     })
   }
 
+
   function fetchNameWithType() {
     type validateFetchString = string
     const formValidateName: validateFetchString = 

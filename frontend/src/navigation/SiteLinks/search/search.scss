@@ -15,9 +15,17 @@
     border-radius: 10px;
     background-color: var(--background-color);
   }
-}
 
 .inputName {
+
+  button {
+    color: white;
+    width: 10%;
+    background-color: var(--primary-color);
+  }
+}
+
+.searchInput {
   width: 100%;
   height: 100%;
   // background-color: var(--primary-color);
@@ -32,11 +40,11 @@
     border-radius: 10px;
     font-weight: 600;
 
+    
     &:focus {
       outline: none;
     }
   }
-}
 
 .resetTypeButton {
   aspect-ratio: 1/1;
