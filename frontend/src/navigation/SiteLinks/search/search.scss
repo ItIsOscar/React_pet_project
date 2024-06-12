@@ -16,12 +16,13 @@
     background-color: var(--background-color);
   }
 
-.inputName {
+  .inputName {
 
-  button {
-    color: white;
-    width: 10%;
-    background-color: var(--primary-color);
+    button {
+      color: white;
+      width: 10%;
+      background-color: var(--primary-color);
+    }
   }
 }
 
@@ -45,6 +46,7 @@
       outline: none;
     }
   }
+}
 
 .resetTypeButton {
   aspect-ratio: 1/1;
