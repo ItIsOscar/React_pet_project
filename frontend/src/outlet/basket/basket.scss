@@ -34,3 +34,30 @@
     }
   }
 }
+
+.paymenConfirmation {
+  fieldset {
+    border: none;
+    list-style: none;
+
+    legend {
+      font-size: 22px;
+      font-weight: 600;
+    }
+    & > button {
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+  }
+}
+
+.cardIcon {
+  width: 40px;
+  height: 30px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+}
