@@ -13,7 +13,7 @@ export default function ProductList({ list }: {
   let [status, setStatus] = useState(listStatusController.getCurrentValue())
 
   listStatusController.setState = setStatus
-
+  
   let productsJSX = list.map((obj: PRODUCT, inx: number) => {
     if(status == "line" ) {
       return <LineCard product={obj} key={inx} />
