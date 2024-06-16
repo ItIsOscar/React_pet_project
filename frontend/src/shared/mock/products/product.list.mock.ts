@@ -42,7 +42,7 @@ export type PRODUCT = {
   description: string
   seller: USER
   characteristics: characteristics_interface[]
-  comments: object[]
+  comments: COMMENT[]
 }
 
 const PRODUCT_LIST: PRODUCT[] = [
