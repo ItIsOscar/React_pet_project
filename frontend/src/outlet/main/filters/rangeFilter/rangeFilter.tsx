@@ -1,21 +1,33 @@
 import "./rangeFilter.scss"
 import filtersController from "../filters.controller"
+import { ChangeEvent } from "react"
 
-function InputRangeFilter({name, defaultValue}) {
+interface IInputRangeFilter {
+  name: string
+  defaultValue: string
+}
+
+function InputRangeFilter({name, defaultValue}: IInputRangeFilter) {
   return (
     <label>
       <span>От:</span>
       <input type="number" 
         name={name} 
         placeholder="1000" 
-        onChange={e => filtersController.saveNewActiveOption(name, e.value)} 
         defaultValue={defaultValue}
+        onChange={(event: ChangeEvent<HTMLInputElement>)=> 
+          filtersController.saveNewActiveOption(name, "number", event.target.value)} 
       />
     </label>
   )
 }
 
-export default function RangeFilter({title, name, value}) {
+interface IRangeFilter {
+  title: string
+  name: string
+}
+
+export default function RangeFilter({title, name}: IRangeFilter) {
   let fromName = `${name}From`
   let toName = `${name}To`
   let fromValue = filtersController.initilizateFilter.number(fromName)

@@ -4,13 +4,18 @@ import SelectorFilter from "./selectorFilter/selectorFilter"
 import LineFilter from "./lineFilter/lineFilter" 
 import filtersController from "./filters.controller"
 import { useEffect, useRef } from "react"
+import { filtersModel } from "../../../shared/mock/catalog/catalog.list.mock"
 
-function MainFilters({ filtersList }) {
-  let filtersListJSX = filtersList.map(obj => {
-    if(obj.type == "selector") {
-      return <SelectorFilter title={obj.title} name={obj.name} values={obj.values} key={obj.name}/>
+interface IMainFilters {
+  filtersList: filtersModel
+}
+
+function MainFilters({ filtersList }: IMainFilters) {
+  let filtersListJSX = filtersList.map(filter => {
+    if(filter.type == "selector") {
+      return <SelectorFilter title={filter.title} name={filter.name} values={filter.values} key={filter.name}/>
     } else {
-      return <RangeFilter title={obj.title} name={obj.name} value={obj.value} key={obj.name}/>
+      return <RangeFilter title={filter.title} name={filter.name} key={filter.name}/>
     }
   })
   return (
@@ -20,10 +25,14 @@ function MainFilters({ filtersList }) {
   )
 }
 
-export default function Filters({filtersList}) {
+interface IFilters {
+  filtersList: filtersModel
+}
+
+export default function Filters({filtersList}: IFilters) {
   let filtersForm = useRef(null)
   useEffect(() => {
-    filtersController.addFiltersList(filtersForm.current)
+    filtersController.addFiltersList(filtersForm.current!)
   }, [])
   
   return (
