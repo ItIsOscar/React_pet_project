@@ -66,7 +66,7 @@ function LineFilterInputs() {
   function setKeyFrameForLine() {
     let allLabes: ILabel[] = [
       {
-        input: firstLabel.current!.children[0] as HTMLInputElement, //Костыль, надо убрать
+        input: firstLabel.current!.children[0] as HTMLInputElement,
         span: firstLabel.current!.children[1] as HTMLSpanElement,
         elWidth: firstLabel.current!.offsetWidth
       }, 

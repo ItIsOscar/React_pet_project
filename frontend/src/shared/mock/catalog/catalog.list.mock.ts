@@ -15,13 +15,14 @@ export interface ISelectorFilters {
 
 export type filtersModel = (IRangeFilters | ISelectorFilters)[]
 
-export interface ICatalogList {
-  [key: string]: {
-    products: PRODUCT[] |string
-    filters: filtersModel
-  }
+export interface ICatalog {
+  products: PRODUCT[] | string
+  filters: filtersModel
 }
-
+   
+export interface ICatalogList {
+  [key: string]: ICatalog
+}
 
 const catalogList: ICatalogList = {
   main: {
