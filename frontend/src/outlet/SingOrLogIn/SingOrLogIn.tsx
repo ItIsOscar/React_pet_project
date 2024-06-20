@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import "./SingOrLogIn.scss";
 
 
@@ -7,10 +7,12 @@ import Anceta from './anceta/ancate';
 import Captcha from './captcha/captcha';
 import Submit from './submit/submit';
 
+interface ISingOrLogIn {
+  closeAuthForm: () => void
+}
 
-
-export default function SignOrLogIn({ closeAuthForm }) {
-  let [itIsSing, toggleFormStatus] = useState(true)
+export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
+  let [iItSing, toggleFormStatus] = useState(true)
 
   function disableScroll() {
     let scrollTop = window.scrollY
@@ -20,19 +22,19 @@ export default function SignOrLogIn({ closeAuthForm }) {
   } disableScroll()
 
   function toggleStatus() {
-    toggleFormStatus(!itIsSing)
+    toggleFormStatus(!iItSing)
   }
 
-  function validationData(form) {
-    if(form.password.value != form.confirmPassword.value)  {
+  function validationData(LogInform: HTMLFormElement) {
+    if(LogInform.password.value != LogInform.confirmPassword.value)  {
       alert("password not!")
       return false
     }
     return true
   }
-  function sendData(e) {
-    e.preventDefault()
-    const FORM = e.target
+  function sendData(FormEvent: FormEvent) {
+    FormEvent.preventDefault()
+    const FORM = FormEvent.target
 
     let allUsersJson = fetch("http://localhost:2000/api/productList/all", {
       method: "GET",
@@ -46,10 +48,10 @@ export default function SignOrLogIn({ closeAuthForm }) {
     <>
       <div className='membrana' onClick={closeAuthForm}></div>
       <form className='logIn' name= "form" onSubmit={sendData} id = "form">
-        <Inputs itIsSing = {itIsSing} toggleStatus = {toggleStatus} />
+        <Inputs isItSing = {iItSing} toggleStatus = {toggleStatus} />
         {/* {!itIsSing && <Captcha /> } */}
-        {!itIsSing && <Anceta /> }
-        <Submit itIsSing = {itIsSing}/>
+        {!iItSing && <Anceta /> }
+        <Submit itIsSing = {iItSing}/>
       </form>
     </>
   );
