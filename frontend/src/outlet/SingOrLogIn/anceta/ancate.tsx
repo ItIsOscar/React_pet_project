@@ -1,6 +1,11 @@
 import "./anceta.scss"
 
-function Question({children, checkBoxName}){
+interface IQuestion {
+  children: string
+  checkBoxName: string
+}
+
+function Question({children, checkBoxName}: IQuestion){
   return (
       <label className='question'>
         <input type='checkbox' name={checkBoxName}/>

@@ -4,7 +4,12 @@ import facebook_logo from "../../../shared/assets/Facebook_Logo_(2019).png"
 import google_logo from "../../../shared/assets/google_logo.png"
 import instagram_logo from "../../../shared/assets/instagram_logo.jpg"
 
-function SocialMedia({src_logo, clickHandler}) {
+interface ISocialMedia {
+  src_logo: string
+  clickHandler: () => void
+}
+
+function SocialMedia({src_logo, clickHandler}: ISocialMedia) {
   return (
     <button onClick={clickHandler}>
       <img src={src_logo} alt={src_logo}/>
@@ -12,7 +17,11 @@ function SocialMedia({src_logo, clickHandler}) {
   )
 }
 
-export default function Submit({itIsSing}) {
+interface ISubmit {
+  itIsSing: boolean
+}
+
+export default function Submit({itIsSing}: ISubmit) {
   return (
     <div className='typeOfSubmit'>
       <div className='confirmLogIn'>
