@@ -10,6 +10,8 @@ import Page404 from "./outlet/page404/page404";
 import Body from "./routerConnector";
 import catalogList from "./shared/mock/catalog/catalog.list.mock";
 import productsMock from "./shared/mock/products/prouduct.methods.mock";
+import userMock from "./shared/mock/users/user.methods.mock";
+import Profile from "./outlet/profile/profile";
 
 
 async function getData(URL) {
@@ -54,6 +56,11 @@ const router = createBrowserRouter([
         path: "cardProduct/:id",
         loader: ({ params }) => productsMock.findProductsById(params.id),
         element: <ProductCard />
+      },
+      {
+        path: "profile/:id",
+        loader: ({ params }) => userMock.user,
+        element: <Profile />
       },
       {
         path: "catalog/:type",

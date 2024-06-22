@@ -3,9 +3,10 @@ import { PRODUCT } from "../products/product.list.mock"
 type productId = number
 export type USER = {
   name: string
-  pic: null
+  pic?: string
   number: string
   discription: string
+  goodsForSale: productId[]
   favourite: productId[] 
   basket: productId[] 
 }
@@ -13,18 +14,20 @@ export type USER = {
 let USERS_LIST: USER[] = [
   {
     name: "USA Agenty",
-    pic: null,
+    // pic: ,
     number: "+99804525409",
     discription: "РАвыаоыврыфпвравфыа",
+    goodsForSale: [],
     favourite: [],
     basket: [] 
     // products: products
   },
   {
     name: "Ваня",
-    pic: null,
+    // pic: ,
     number: "+9989506409",
     discription: "РАвыаоыврыфпвравфыа",
+    goodsForSale: [],
     favourite: [] ,
     basket: []
     // products: null

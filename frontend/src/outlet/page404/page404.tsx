@@ -1,10 +1,9 @@
 import "./page404.scss"
 
-import { useRouteError } from "react-router-dom"
+import { ErrorResponse, useRouteError } from "react-router-dom"
 
 export default function Page404() {
-  const error = useRouteError()
-  
+  const error = useRouteError() as ErrorResponse
   return (
     <>
       <div className="P404">

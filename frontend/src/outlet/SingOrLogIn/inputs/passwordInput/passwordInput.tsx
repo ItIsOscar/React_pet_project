@@ -1,22 +1,22 @@
 import "../inputs.scss"
-import { useState } from "react"
+import { MouseEvent, useState } from "react"
 
 export default function PasswordInput() {
   const [status, toggleStatus] = useState("password")
   const [statusText, toggleText] = useState("hide")
 
-  function toggleToVisible() {
+  function toggleToVisible(): void {
     toggleStatus("text")
     toggleText("hide")
   }
 
-  function toggleToHide() {
+  function toggleToHide(): void {
     toggleStatus("password")
     toggleText("show")
   }
 
-  function togglePasswordVisible(e) {
-    e.preventDefault()
+  function togglePasswordVisible(ClickEvent: MouseEvent<HTMLButtonElement>): void {
+    ClickEvent.preventDefault()
     status == "password" ? toggleToVisible() : toggleToHide()
   }
   
@@ -26,7 +26,7 @@ export default function PasswordInput() {
         <label>Password</label>
         <span>
           {/* <img src='https://w7.pngwing.com/pngs/913/965/png-transparent-black-eye-illustration-eye-drawing-color-eye-people-human-eye-simple-eye-in-invertebrates.png'/> */}
-          <button onClick={togglePasswordVisible}>
+          <button onClick={ClickEvent => togglePasswordVisible(ClickEvent)}>
             {statusText}
             </button>
         </span>
@@ -36,7 +36,7 @@ export default function PasswordInput() {
   )
 }
 
- export function ConfirmPassword() {
+export function ConfirmPassword() {
   return (
     <div className='dateInput'>
       <div className='label confirm'>

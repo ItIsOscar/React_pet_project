@@ -72,9 +72,6 @@ export default function Search() {
       <NameInput ref={FORM_NAME}/>
       <ResetNameButton onClick={resetFormName} />
       <button type="button" className="submitButton" onClick={fetchNameWithType}>Поиск</button>
-    </form>
-      
+    </form>      
   )
 }
-
-

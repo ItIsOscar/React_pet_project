@@ -21,6 +21,9 @@ class UserMethods {
       basketList.push(inx)
     }
   }
+  // findProductsById = (id: number) => {
+  //   return this.user.find((el) => el.id == id)
+  // }
 }
 let userMock = new UserMethods
 export default userMock

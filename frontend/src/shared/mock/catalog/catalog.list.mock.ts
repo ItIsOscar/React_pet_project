@@ -1,6 +1,30 @@
+import { PRODUCT } from "../products/product.list.mock"
 import productsMock from "../products/prouduct.methods.mock"
+export interface IRangeFilters {
+  type: "range"
+  title: string
+  name: string
+}
 
-const catalogList = {
+export interface ISelectorFilters {
+  type: "selector"
+  name: string
+  title: string
+  values: string[]
+}
+
+export type filtersModel = (IRangeFilters | ISelectorFilters)[]
+
+export interface ICatalog {
+  products: PRODUCT[] | string
+  filters: filtersModel
+}
+   
+export interface ICatalogList {
+  [key: string]: ICatalog
+}
+
+const catalogList: ICatalogList = {
   main: {
     products: productsMock.products,
     filters: [
@@ -32,24 +56,24 @@ const catalogList = {
     products: "Электроника",
     filters: [
       {
+        type: "selector",
         name: "manufacturer",
         title: "производитель",
-        type: "selector",
         values: ["Samsung" ,"apple", "Poco"],
       },
       {
+        type: "selector",
         name: "Series",
         title: "Серия",
-        type: "selector",
         values: ["A12" ,"A11", "A10"],
       },
       {
-        type: "rage",
+        type: "range",
         title: "Цена",
         name: "cost",
       },
       {
-        type: "rage",
+        type: "range",
         title: "Аккумулятор",
         name: "battery",
       }
