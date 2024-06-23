@@ -2,6 +2,8 @@ import USERS_LIST from "./users.list.mock"
 
 class UserMethods {
   user = USERS_LIST[0]
+  setFavouriteCount?: () => void
+
   setFavourite(inx: number, isInFavoutite: boolean) {
     let favouriteList = this.user.favourite
     if(isInFavoutite) {
@@ -10,6 +12,7 @@ class UserMethods {
     } else {
       favouriteList.push(inx)
     }
+    this.setFavouriteCount!()
   }
   setBasket(inx: number, isInBasket: boolean) {
     console.log(inx, isInBasket)
