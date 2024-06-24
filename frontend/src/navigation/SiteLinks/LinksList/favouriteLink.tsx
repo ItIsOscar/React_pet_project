@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import "./favouriteLink.scss"
 import { useState } from "react"
 
 import heart_full from "../../../shared/assets/heart_full.svg"
@@ -10,7 +9,6 @@ export default function FavouriteLink() {
   let [isHover, setHover] = useState<boolean>(false)
   let [favouriteCountLocal, setfavouriteCount] = useState<number>(userMock.user.favourite.length)
   function setterfavouriteCount(): void {
-    console.log(userMock.user.favourite.length)
     setfavouriteCount(userMock.user.favourite.length)
   }
   userMock.setFavouriteCount = setterfavouriteCount
