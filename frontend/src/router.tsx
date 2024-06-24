@@ -8,13 +8,15 @@ import Favourite from "./outlet/favourite/favourite";
 import ProductCard from "./outlet/productCard/productCard";
 import Page404 from "./outlet/page404/page404";
 import Body from "./routerConnector";
-import catalogList from "./shared/mock/catalog/catalog.list.mock";
+import catalogList, { ICatalog } from "./shared/mock/catalog/catalog.list.mock";
 import productsMock from "./shared/mock/products/prouduct.methods.mock";
 import userMock from "./shared/mock/users/user.methods.mock";
 import Profile from "./outlet/profile/profile";
+import { PRODUCT } from "./shared/mock/products/product.list.mock";
+import { USER } from "./shared/mock/users/users.list.mock";
 
 
-async function getData(URL) {
+async function getData(URL: string) {
   let result = await fetch(`${URL}`, {
     method: "GET",
   })
@@ -54,17 +56,17 @@ const router = createBrowserRouter([
       },
       {
         path: "cardProduct/:id",
-        loader: ({ params }) => productsMock.findProductsById(params.id),
+        loader: ({params}): PRODUCT => productsMock.findProductsById(params.id!),
         element: <ProductCard />
       },
       {
         path: "profile/:id",
-        loader: ({ params }) => userMock.user,
+        loader: ({ params }): USER => userMock.user,
         element: <Profile />
       },
       {
         path: "catalog/:type",
-        loader: ({ params }) => catalogList[params.type],
+        loader: ({ params }): ICatalog => catalogList[params.type!],
         element: <Main />
       }
     ]

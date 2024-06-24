@@ -4,25 +4,26 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import Search from "./search/search"
 
-import heart_border from "../../shared/assets/heart_border.svg"
-import heart_full from "../../shared/assets/heart_full.svg"
-import user_border from "../../shared/assets/user_border.svg"
-import user_full from "../../shared/assets/user_full.svg"
+
+
 import delivery_border from "../../shared/assets/delivery_border.svg"
 import delivery_full from "../../shared/assets/delivery_full.svg"
-import basket_border from "../../shared/assets/basket_border.svg"
-import basket_full from "../../shared/assets/basket_full.svg"
+
 
 import logo from "../../shared/assets/logo.png"
+import FavouriteLink from "./LinksList/favouriteLink"
+import BasketLink from "./LinksList/basketLink"
+import AuthFormLink from "./LinksList/AuthFormLink"
 
-
-function SiteNavButton({ href, icon, hoverIcon, title, handleClick = undefined} : {
+interface ISiteNavButton {
   href: string
   icon: string
   hoverIcon: string
   title: string
   handleClick?: () => void
-}) {
+}
+
+function SiteNavButton({ href, icon, hoverIcon, title, handleClick = undefined}: ISiteNavButton) {
   let [isHover, setHover] = useState(false)
 
   return (
@@ -52,7 +53,7 @@ function LanguageSelector() {
   )
 }
 
-export default function SiteLinks({ openAuthForm } : { openAuthForm: () => void}) {
+export default function SiteLinks() {
   return (
     <div className="siteNav">
       <a href="/">
@@ -62,9 +63,9 @@ export default function SiteLinks({ openAuthForm } : { openAuthForm: () => void}
       <div className="navContent">
         {/* <LanguageSelector /> */}
         <div className="navLinks">
-          <SiteNavButton href="" handleClick={openAuthForm} title="Войти" icon={user_border} hoverIcon={user_full} />
-          <SiteNavButton href="/favourite" title="Избранное" icon={heart_border} hoverIcon={heart_full} />
-          <SiteNavButton href="/basket" title="Корзина" icon={basket_border} hoverIcon={basket_full} />
+          <AuthFormLink />
+          <FavouriteLink />
+          <BasketLink />
           <SiteNavButton href="/delivery" title="Доставка" icon={delivery_border} hoverIcon={delivery_full} />
         </div>
       </div>

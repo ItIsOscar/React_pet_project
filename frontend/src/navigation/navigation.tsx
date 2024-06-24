@@ -20,7 +20,7 @@ function TopHeader() {
   )
 }
 
-export default function Navigation({ openAuthForm } : {openAuthForm: () => void}) {
+export default function Navigation() {
   let [scrollStatus, setStatus] = useState("")
   let lastScrollY = useRef<number>(0)
   const siteLinksNav: RefObject<HTMLElement> = useRef(null) //TODO: find object(dom) of nav html tag
@@ -93,7 +93,7 @@ export default function Navigation({ openAuthForm } : {openAuthForm: () => void}
     <>
       <TopHeader />
       <nav className="navigation" ref={siteLinksNav}>
-        <SiteLinks openAuthForm={openAuthForm}/>
+        <SiteLinks />
         <CatalogLinks ref={catalogLinksNav}/>
       </nav>
     </>
