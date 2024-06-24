@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, MouseEvent, useState } from 'react';
 import "./SingOrLogIn.scss";
 
 
@@ -7,12 +7,9 @@ import Anceta from './anceta/ancate';
 import Captcha from './captcha/captcha';
 import Submit from './submit/submit';
 
-interface ISingOrLogIn {
-  closeAuthForm: () => void
-}
 
-export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
-  let [iItSing, toggleFormStatus] = useState(true)
+export default function SignOrLogIn() {
+  let [isItSing, toggleFormStatus] = useState(true)
 
   function disableScroll() {
     let scrollTop = window.scrollY
@@ -22,7 +19,14 @@ export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
   } disableScroll()
 
   function toggleStatus() {
-    toggleFormStatus(!iItSing)
+    toggleFormStatus(!isItSing)
+  }
+
+  function closeAuthForm(event: MouseEvent<HTMLDivElement>) {
+    let closeAuthEvent = new CustomEvent("closeAuthForm", {
+      bubbles: true
+    })
+    event.target.dispatchEvent(closeAuthEvent)
   }
 
   function validationData(LogInform: HTMLFormElement) {
@@ -46,12 +50,13 @@ export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
 
   return (
     <>
-      <div className='membrana' onClick={closeAuthForm}></div>
+      <div className='membrana' onClick={event => closeAuthForm(event)}></div>
+      
       <form className='logIn' name= "form" onSubmit={sendData} id = "form">
-        <Inputs isItSing = {iItSing} toggleStatus = {toggleStatus} />
+        <Inputs isItSing = {isItSing} toggleStatus = {toggleStatus} />
         {/* {!itIsSing && <Captcha /> } */}
-        {!iItSing && <Anceta /> }
-        <Submit itIsSing = {iItSing}/>
+        {!isItSing && <Anceta /> }
+        <Submit itIsSing = {isItSing}/>
       </form>
     </>
   );

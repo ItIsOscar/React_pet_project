@@ -7,15 +7,18 @@ import SignOrLogIn from "./outlet/SingOrLogIn/SingOrLogIn";
 export default function Body() {
   let [isReg, setIsReg] = useState(false)
 
-  function toggleIsReg() {
-    setIsReg(!isReg)
-  }
+  document.addEventListener("OpenAuthForm", () => {
+    setIsReg(true)
+  })
+  document.addEventListener("closeAuthForm", () => {
+    setIsReg(false)
+  })
 
   return (
     <div>
-      <Navigation openAuthForm={toggleIsReg}/>
+      <Navigation />
         <Outlet />  
-      {isReg && <SignOrLogIn closeAuthForm={toggleIsReg}/>}
+      {isReg && <SignOrLogIn />}
       <Basement />
     </div>
   )
