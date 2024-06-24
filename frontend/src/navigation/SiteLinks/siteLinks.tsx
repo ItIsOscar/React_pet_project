@@ -5,15 +5,15 @@ import { Link } from "react-router-dom"
 import Search from "./search/search"
 
 
-import user_border from "../../shared/assets/user_border.svg"
-import user_full from "../../shared/assets/user_full.svg"
+
 import delivery_border from "../../shared/assets/delivery_border.svg"
 import delivery_full from "../../shared/assets/delivery_full.svg"
-import basket_border from "../../shared/assets/basket_border.svg"
-import basket_full from "../../shared/assets/basket_full.svg"
+
 
 import logo from "../../shared/assets/logo.png"
-import FavouriteLink from "./favouriteLink/favouriteLink"
+import FavouriteLink from "./LinksList/favouriteLink"
+import BasketLink from "./LinksList/basketLink"
+import AuthFormLink from "./LinksList/AuthFormLink"
 
 interface ISiteNavButton {
   href: string
@@ -39,23 +39,6 @@ function SiteNavButton({ href, icon, hoverIcon, title, handleClick = undefined}:
   )
 }
 
-function SiteNavButtonWithCount({ href, icon, hoverIcon, title, handleClick = undefined}: ISiteNavButton) {
-  let [isHover, setHover] = useState(false)
-
-  return (
-    <Link to={href} 
-      className="topButtons"
-      onClick={handleClick}
-      onMouseOver={() => {setHover(true)}}
-      onMouseOut={() => {setHover(false)}} 
-    >
-      <span className="count">0</span>
-      <img src={isHover ? hoverIcon : icon} />
-      <h2>{title}</h2>
-    </Link>
-  )
-}
-
 function LanguageSelector() {
   let languageList: string[] = ["Русский", "English", "O'zbek"]
   
@@ -70,11 +53,7 @@ function LanguageSelector() {
   )
 }
 
-interface ISiteLinks { 
-  openAuthForm: () => void
-}
-
-export default function SiteLinks({ openAuthForm }: ISiteLinks) {
+export default function SiteLinks() {
   return (
     <div className="siteNav">
       <a href="/">
@@ -84,9 +63,9 @@ export default function SiteLinks({ openAuthForm }: ISiteLinks) {
       <div className="navContent">
         {/* <LanguageSelector /> */}
         <div className="navLinks">
-          <SiteNavButton href="" handleClick={openAuthForm} title="Войти" icon={user_border} hoverIcon={user_full} />
+          <AuthFormLink />
           <FavouriteLink />
-          <SiteNavButtonWithCount href="/basket" title="Корзина" icon={basket_border} hoverIcon={basket_full} />
+          <BasketLink />
           <SiteNavButton href="/delivery" title="Доставка" icon={delivery_border} hoverIcon={delivery_full} />
         </div>
       </div>
