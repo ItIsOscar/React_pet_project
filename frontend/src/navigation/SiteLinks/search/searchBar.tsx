@@ -1,6 +1,6 @@
-import "./search.scss"
-import {FormEvent, RefObject, forwardRef, useRef} from "react"
-import { SearchType as FormTypeModel } from "./search.interface"
+import "./searchBar.scss"
+import {RefObject, forwardRef, useRef} from "react"
+import { SearchType as FormTypeModel } from "./searchBar.interface"
 
 interface onChangeInterface {
   onChange: () => void
@@ -28,19 +28,21 @@ const NameInput = forwardRef<HTMLInputElement, {}> (({}, ref) => {
   )
 })
 
-function ResetNameButton({onClick} : {
+interface IResetNameButton {
   onClick: () => void
-}) {
+}
+
+function ResetNameButton({onClick} : IResetNameButton) {
   const CROSS_ICON = "https://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png"
 
   return (
     <button type="button" className="resetTypeButton" onClick={onClick}>
-        <img src={CROSS_ICON} />
-      </button>
+      <img src={CROSS_ICON} />
+    </button>
   )
 }
 
-export default function Search() {
+export default function SearchBar() {
   const FORM_TYPE: RefObject<HTMLSelectElement> = useRef(null)
   const FORM_NAME: RefObject<HTMLInputElement> = useRef(null)
   
@@ -50,9 +52,9 @@ export default function Search() {
     })
   }
 
-
   function fetchNameWithType() {
     type validateFetchString = string
+    
     const formValidateName: validateFetchString = 
       FORM_NAME.current!.value.trim().split(" ").filter(word => word != "").join(" ")
 

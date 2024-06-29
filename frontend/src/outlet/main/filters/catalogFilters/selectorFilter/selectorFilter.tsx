@@ -1,5 +1,5 @@
 import "./selectorFilter.scss"
-import filtersController from "../filters.controller"
+import filtersController from "../../filters.controller"
 import { ChangeEvent } from "react"
 
 interface ISelectorFilter{

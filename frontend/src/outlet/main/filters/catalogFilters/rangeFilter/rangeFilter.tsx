@@ -1,5 +1,5 @@
 import "./rangeFilter.scss"
-import filtersController from "../filters.controller"
+import filtersController from "../../filters.controller"
 import { ChangeEvent } from "react"
 
 interface IInputRangeFilter {

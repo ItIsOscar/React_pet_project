@@ -13,18 +13,19 @@ interface IComp_user {
 
 function Description({user}: IComp_user) {
   return (
-    <div className="discription">
-      <div className="pic_name">
+    //idk it is secton or article
+    <article className="discription">
+      <section className="pic_name">
         <img src={user.pic} />
         <ul>
-          <li><h2>Ваня</h2></li>
-          <li><h3>Вошел: 19.03.2023</h3></li>
-          <li><h3>Проданные товары: 12</h3></li>
-          <li><h3>Страна: узбекистан</h3></li>
+          <li>Ваня</li>
+          <li>Вошел: 19.03.2023</li>
+          <li>Проданные товары: 12</li>
+          <li>Страна: узбекистан</li>
         </ul>
-      </div>
+      </section>
       <p>{user.discription}</p>
-    </div> 
+    </article> 
   )
 }
 
@@ -41,23 +42,25 @@ function UserStall({stall}: {
 
     stallList = <ProductList list={stallProductList} />
   } else {
-    stallList = <h3>Ничего не продает</h3>
+    stallList = <span>Ничего не продает</span>
   }
-
+  
   return (
-    <div>
+    //idk it is secton or article
+    <article> 
       <Title margin="2rem 1rem 1rem 1rem">Объявление продавца</Title>
       {stallList}
-    </div>
+    </article>
   )
 }
 
 function UserComments() {
   return (
-    <div>
+    //idk it is secton or article
+    <section> 
       <Title margin="2rem 1rem 1rem 1rem">Комментарии</Title>
       {/* <Comment comments={comments} />  */}
-    </div>
+    </section>
   )
 }
 
@@ -65,10 +68,10 @@ export default function Profile() {
   const user: USER = useLoaderData() as USER
 
   return (
-    <div className="content">
+    <main className="content">
       <Description user={user} />
       <UserStall stall={user.goodsForSale}/>
       <UserComments />
-    </div>
+    </main>
   )
 }

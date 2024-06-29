@@ -6,6 +6,8 @@ import { useState } from "react"
 import { PRODUCT } from "../../shared/mock/products/product.list.mock"
 import { USER } from "../../shared/mock/users/users.list.mock"
 
+//TODO: NEED SEMATITESKAYA VERSTKA!!
+
 interface IProductTitle {
   product: PRODUCT
 }

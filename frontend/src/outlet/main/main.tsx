@@ -9,13 +9,13 @@ export default function Main() {
   const catalog = useLoaderData() as ICatalog
   
   return (
-    <div className='content'>
+    <main className='content'>
       <Banner />
       <Filters filtersList={catalog.filters}/> 
       {typeof catalog.products === "string" ? 
-        <h1>Типо {catalog.products}</h1> :
+        <span>Типо {catalog.products}</span> :
         <ProductList list={catalog.products}/>
       }
-    </div>
+    </main>
   )
 }

@@ -55,23 +55,23 @@ export default function Comments({comments}: {
   comments: COMMENT[]
 }) {
   let commentsList = comments.map((obj, inx) => (
-    <div className="comment" key={inx}>
+    <article className="comment" key={inx}>
       <div>
         <User name={obj.user.name} />
         <Rating grade={obj.grade}/>
         <CommentsContent text={obj.content} />
       </div>
       <CreateDate date={obj.date} />
-    </div>
+    </article>
   ))
   return (
-    <div className="comments">
+    <article className="comments">
         <form>
           <SortingBy />
         </form>
-        <div className="commentsList">
+        <section className="commentsList">
           {commentsList}
-        </div>
-      </div>
+        </section>
+      </article>
   )
 }

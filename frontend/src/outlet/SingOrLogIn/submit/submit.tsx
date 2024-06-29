@@ -26,14 +26,14 @@ export default function Submit({itIsSing}: ISubmit) {
     <div className='typeOfSubmit'>
       <div className='confirmLogIn'>
         <input type='submit' name= "submit" className='submit' />
-        <div className='soicalMedia'>
+        <section className='soicalMedia'>
           <label>enter with help social</label>
-          <div>
+          <ul>
             <SocialMedia src_logo={google_logo} clickHandler={() => alert("Buy premium account!")} />
             <SocialMedia src_logo={facebook_logo} clickHandler={() => alert("Buy premium account!")} />
             <SocialMedia src_logo={instagram_logo} clickHandler={() => alert("Buy premium account!")} />
-          </div>
-        </div>
+          </ul>
+        </section>
       </div>
       <button className='forgot'>{itIsSing ? "Forgot password?": "Accept our conference"}</button>
     </div> 

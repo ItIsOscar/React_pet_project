@@ -92,10 +92,10 @@ export default function Navigation() {
   return (
     <>
       <TopHeader />
-      <nav className="navigation" ref={siteLinksNav}>
+      <header className="navigation" ref={siteLinksNav}>
         <SiteLinks />
         <CatalogLinks ref={catalogLinksNav}/>
-      </nav>
+      </header>
     </>
   )
 }

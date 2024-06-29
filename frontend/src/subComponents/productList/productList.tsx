@@ -23,9 +23,9 @@ export default function ProductList({ list }: {
   })
 
   return (
-    <div className={status == "line" ? "productList_line" : "productList_squad"}>
+    <ul className={status == "line" ? "productList_line" : "productList_squad"}>
       {productsJSX}
-    </div>
+    </ul>
   )
 }
 

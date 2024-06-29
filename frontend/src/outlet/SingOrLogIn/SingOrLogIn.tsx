@@ -7,11 +7,8 @@ import Anceta from './anceta/ancate';
 import Captcha from './captcha/captcha';
 import Submit from './submit/submit';
 
-interface ISingOrLogIn {
-  closeAuthForm: () => void
-}
 
-export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
+export default function SignOrLogIn() {
   let [iItSing, toggleFormStatus] = useState(true)
 
   function disableScroll() {
@@ -23,6 +20,13 @@ export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
 
   function toggleStatus() {
     toggleFormStatus(!iItSing)
+  }
+
+  function dispatchCloseAuthForm(element: HTMLElement) {
+    let closeAuthFormEvent = new CustomEvent("closeAuthForm", {
+      bubbles: true
+    })
+    element.dispatchEvent(closeAuthFormEvent)
   }
 
   function validationData(LogInform: HTMLFormElement) {
@@ -46,7 +50,7 @@ export default function SignOrLogIn({ closeAuthForm }: ISingOrLogIn) {
 
   return (
     <>
-      <div className='membrana' onClick={closeAuthForm}></div>
+      <div className='membrana' onClick={event => dispatchCloseAuthForm(event.target as HTMLElement)}></div>
       <form className='logIn' name= "form" onSubmit={sendData} id = "form">
         <Inputs isItSing = {iItSing} toggleStatus = {toggleStatus} />
         {/* {!itIsSing && <Captcha /> } */}

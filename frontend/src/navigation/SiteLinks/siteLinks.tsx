@@ -1,40 +1,17 @@
 import "./siteLinks.scss"
-
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import Search from "./search/search"
-
-
-
-import delivery_border from "../../shared/assets/delivery_border.svg"
-import delivery_full from "../../shared/assets/delivery_full.svg"
-
+import SearchBar from "./search/searchBar"
 
 import logo from "../../shared/assets/logo.png"
 import FavouriteLink from "./LinksList/favouriteLink"
 import BasketLink from "./LinksList/basketLink"
 import AuthFormLink from "./LinksList/AuthFormLink"
+import DeliveryLink from "./LinksList/deliveryLink"
+import { Link } from "react-router-dom"
 
-interface ISiteNavButton {
-  href: string
-  icon: string
-  hoverIcon: string
-  title: string
-  handleClick?: () => void
-}
-
-function SiteNavButton({ href, icon, hoverIcon, title, handleClick = undefined}: ISiteNavButton) {
-  let [isHover, setHover] = useState(false)
-
+function CompanyLogo() {
   return (
-    <Link to={href} 
-      className="topButtons"
-      onClick={handleClick}
-      onMouseOver={() => {setHover(true)}}
-      onMouseOut={() => {setHover(false)}} 
-    >
-      <img src={isHover ? hoverIcon : icon} />
-      <h2>{title}</h2>
+    <Link to="/">
+      <img src={logo} className="logo"/>
     </Link>
   )
 }
@@ -55,20 +32,18 @@ function LanguageSelector() {
 
 export default function SiteLinks() {
   return (
-    <div className="siteNav">
-      <a href="/">
-        <img src={logo} className="logo"/>
-      </a>
-      <Search />
+    <section className="siteNav">
+      <CompanyLogo />
+      <SearchBar />
       <div className="navContent">
         {/* <LanguageSelector /> */}
-        <div className="navLinks">
+        <nav className="navLinks">
           <AuthFormLink />
           <FavouriteLink />
           <BasketLink />
-          <SiteNavButton href="/delivery" title="Доставка" icon={delivery_border} hoverIcon={delivery_full} />
-        </div>
+          <DeliveryLink/>
+        </nav>
       </div>
-    </div>
+    </section>
   )
 }

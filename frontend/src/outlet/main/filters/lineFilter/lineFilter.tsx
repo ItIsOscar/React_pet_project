@@ -95,7 +95,7 @@ function LineFilterInputs() {
 
   return (
     <div>
-        <div className="filters">
+        <ul className="filters">
           <CheckBox name="typeOfSallers" ref={firstLabel} value={filtersController.DEFAULT_VALUE.string} onChange={setKeyFrameForLine}>
             Все товары
           </CheckBox>
@@ -105,7 +105,7 @@ function LineFilterInputs() {
           <CheckBox name="typeOfSallers" ref={thirdLabel} value={"sellers"} onChange={setKeyFrameForLine}>
             Частники
           </CheckBox>
-        </div>
+        </ul>
         <span className="line" ref={line}></span>
       </div>
   )
@@ -113,22 +113,22 @@ function LineFilterInputs() {
 
 function LineFilterButtons() {
   return (
-    <div className="filtersOptions">
+    <ul className="filtersOptions">
       <button type="button" className="toggleStatus"
         onClick={listStatusController.toggleListStatus}>
         <img src={listStatusController.getCurrentValue() == "line" ? list : grid}  />
       </button>
       <button type="submit">Подвердить фильтры</button>
       <button type="button" onClick={filtersController.resetAllFilters}>Сбросить фильтры</button>
-    </div>
+    </ul>
   )
 }
 
-export default function LineFilter() {  
+export default function LineFilter_sellerType() {  
   return (
-    <div className="mainFilters" >
+    <section className="mainFilters" >
         <LineFilterInputs />
         <LineFilterButtons />
-    </div>
+    </section>
   )
 }

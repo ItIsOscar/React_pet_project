@@ -41,18 +41,18 @@ export default function LineCard({product}: {
 
   return (
     <Link to={"/cardProduct/" + product.id} className="lineCard">
-      <div className="pic_info">
+      <section className="pic_info">
         <img src={product.pic}/>
         <ul>
           <li>{product.name}</li>
           <li>{product.cost.value + " " + product.cost.currency}</li>
           <li>{seller.name}</li>
         </ul>
-      </div>
-      <div className="characteristics">
+      </section>
+      <section className="characteristics">
         {characteristicsXJS}
-      </div>
-      <button className={`but ${isfavourite ? "active" : "unActive"}`} 
+      </section>
+      <button className={`favouriteBut ${isfavourite ? "active" : "unActive"}`} 
         onClick={clickEvent => {
           setFavourite(clickEvent)
         }}>

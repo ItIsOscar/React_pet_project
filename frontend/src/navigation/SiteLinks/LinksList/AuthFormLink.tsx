@@ -13,7 +13,7 @@ export default function AuthFormLink() {
 
 
   return (
-    <Link to={""} 
+    <button 
       className="topButtons"
       onClick={event => event.target.dispatchEvent(OpenAuthFormEvent)}
       onMouseOver={() => {setHover(true)}}
@@ -21,6 +21,6 @@ export default function AuthFormLink() {
     >
       <img src={isHover ? user_full : user_border} />
       <h2>Войти</h2>
-    </Link>
+    </button>
   )
 }

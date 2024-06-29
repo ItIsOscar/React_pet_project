@@ -23,9 +23,9 @@ const CatalogLinks = forwardRef(({}, ref : React.ForwardedRef<HTMLUListElement>)
   ))
 
   return (
-    <ul className="catalogNav" ref={ref}>
+    <nav className="catalogNav" ref={ref}>
       {catalogList}
-    </ul>
+    </nav>
   )
 })
 export default CatalogLinks

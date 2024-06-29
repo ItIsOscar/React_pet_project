@@ -1,22 +1,21 @@
 import { Outlet } from "react-router";
 import { useState } from "react";
 import Navigation from "./navigation/navigation";
-import Basement from "./subComponents/basement/basement";
+import SiteFooter from "./subComponents/siteFooter/siteFooter";
 import SignOrLogIn from "./outlet/SingOrLogIn/SingOrLogIn";
 
 export default function Body() {
-  let [isReg, setIsReg] = useState(false)
+  let [isReg, setIsReg] = useState<boolean>(false)
 
-  function toggleIsReg() {
-    setIsReg(!isReg)
-  }
+  document.addEventListener("OpenAuthForm",() => setIsReg(true))
+  document.addEventListener("closeAuthForm",() => setIsReg(false))
 
   return (
-    <div>
-      <Navigation openAuthForm={toggleIsReg}/>
-        <Outlet />  
-      {isReg && <SignOrLogIn closeAuthForm={toggleIsReg}/>}
-      <Basement />
-    </div>
+    <>
+      <Navigation />
+      <Outlet />  
+      {isReg && <SignOrLogIn />}
+      <SiteFooter />
+    </>
   )
 }
