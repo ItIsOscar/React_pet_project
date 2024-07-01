@@ -1,32 +1,32 @@
-import { PRODUCT } from "../products/product.list.mock"
-import productsMock from "../products/prouduct.methods.mock"
-export interface IRangeFilters {
+import { productModel } from "../db/product.list.mock"
+import productsAPIMock from "../prouduct.api.mock"
+export interface rangeFiltersModel {
   type: "range"
   title: string
   name: string
 }
 
-export interface ISelectorFilters {
+export interface selectorFiltersModel {
   type: "selector"
   name: string
   title: string
   values: string[]
 }
 
-export type filtersModel = (IRangeFilters | ISelectorFilters)[]
+export type filtersModel = (rangeFiltersModel | selectorFiltersModel)[]
 
-export interface ICatalog {
-  products: PRODUCT[] | string
+export interface catalogModel {
+  products: productModel[] | string
   filters: filtersModel
 }
    
-export interface ICatalogList {
-  [key: string]: ICatalog
+export interface catalogListModel {
+  [key: string]: catalogModel
 }
 
-const catalogList: ICatalogList = {
+const catalogList: catalogListModel = {
   main: {
-    products: productsMock.products,
+    products: productsAPIMock.getAllProducts(),
     filters: [
       {
         type: "range",
@@ -80,7 +80,7 @@ const catalogList: ICatalogList = {
     ]
   },
   cars: {
-    products: productsMock.products,
+    products: productsAPIMock.getAllProducts(),
     filters: [
       {
         type: "selector",

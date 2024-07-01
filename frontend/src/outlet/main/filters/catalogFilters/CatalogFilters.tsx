@@ -1,4 +1,4 @@
-import { filtersModel } from "../../../../shared/mock/catalog/catalog.list.mock"
+import { filtersModel } from "../../../../shared/mock/db/catalog.list.mock"
 import RangeFilter from "./rangeFilter/rangeFilter"
 import SelectorFilter from "./selectorFilter/selectorFilter"
 

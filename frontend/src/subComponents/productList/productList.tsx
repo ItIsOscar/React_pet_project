@@ -5,16 +5,16 @@ import SquadCard from "./squadCardProduct/squadCardProduct"
 import "./productList.scss"
 import { useState } from "react"
 import listStatusController from "../../shared/controlles/listStatus.controller"
-import { PRODUCT } from "../../shared/mock/products/product.list.mock"
+import { productModel } from "../../shared/mock/db/product.list.mock"
 
 export default function ProductList({ list }: {
-  list: PRODUCT[]
+  list: productModel[]
 }) {
   let [status, setStatus] = useState(listStatusController.getCurrentValue())
 
   listStatusController.setState = setStatus
   
-  let productsJSX = list.map((obj: PRODUCT, inx: number) => {
+  let productsJSX = list.map((obj: productModel, inx: number) => {
     if(status == "line" ) {
       return <LineCard product={obj} key={inx} />
     } else {

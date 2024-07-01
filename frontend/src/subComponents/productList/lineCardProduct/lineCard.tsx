@@ -5,18 +5,20 @@ import React, { useState, useRef, RefObject, MouseEvent } from "react"
 import heart_p_b from "../../../shared/assets/heart_p_b.svg"
 import heart_p_f from "../../../shared/assets/heart_p_f.svg"
 
-import userMock from "../../../shared/mock/users/user.methods.mock"
-import { PRODUCT } from "../../../shared/mock/products/product.list.mock"
-import { USER } from "../../../shared/mock/users/users.list.mock"
+import userAPIMock from "../../../shared/mock/user.api.mock"
+import { productModel } from "../../../shared/mock/db/product.list.mock"
+import { userModel } from "../../../shared/mock/db/users.list.mock"
 
-export default function LineCard({product}: {
-  product: PRODUCT
-}) {
+interface ILineCard {
+  product: productModel
+}
+
+export default function LineCard({product}: ILineCard) {
   let [isfavourite, setIsFavourite] = useState<boolean>(false)
 
-  let idTimerDefense = useRef<any>(null) // need change type to setTimeOut
+  let idTimerDefense = useRef<NodeJS.Timeout | null>(null)
 
-  let seller: USER = userMock.user
+  let seller: userModel = product.seller
   let characteristicsXJS: JSX.Element[] = product.characteristics.map(model => (
     <h4 key={model.type}>{model.value}</h4>
   ))
@@ -27,13 +29,13 @@ export default function LineCard({product}: {
   }
 
   function changeFavouriteList(): void {
-    userMock.setFavourite(product.id, isfavourite)
+    userAPIMock.setFavourite(product.id, isfavourite)
   }
 
   function setFavourite(clickEvent: MouseEvent<HTMLButtonElement>): void { 
     stopPropagationAndDefault(clickEvent)
     setIsFavourite(!isfavourite)
-    clearTimeout(idTimerDefense.current)
+    clearTimeout(idTimerDefense.current!)
     idTimerDefense.current = setTimeout(() => {
       changeFavouriteList()
     }, 600);

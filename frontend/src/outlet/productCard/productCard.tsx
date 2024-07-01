@@ -1,15 +1,15 @@
 import "./productCard.scss"
 import Comments from "../../subComponents/comment/comment"
 import { Link, useLoaderData } from "react-router-dom"
-import userMock from "../../shared/mock/users/user.methods.mock"
+import userAPIMock from "../../shared/mock/user.api.mock"
 import { useState } from "react"
-import { PRODUCT } from "../../shared/mock/products/product.list.mock"
-import { USER } from "../../shared/mock/users/users.list.mock"
+import { productModel } from "../../shared/mock/db/product.list.mock"
+import { userModel } from "../../shared/mock/db/users.list.mock"
 
 //TODO: NEED SEMATITESKAYA VERSTKA!!
 
 interface IProductTitle {
-  product: PRODUCT
+  product: productModel
 }
 
 function ProductTitle({product}: IProductTitle) {
@@ -44,15 +44,14 @@ function Description({description}: IDescription) {
 
 interface ISeller {
   id: number
-  seller: USER
+  seller: userModel
 }
 
 function Seller({id, seller}: ISeller) {
   let [isInBasket, setIsInBasket] = useState(false)
 
   function changeOnBasket(): void {
-    userMock.setBasket(id, isInBasket)
-    console.log(userMock.user)
+    userAPIMock.setBasket(id, isInBasket)
     setIsInBasket(!isInBasket)
   }
 
@@ -83,7 +82,7 @@ function Location({location}: ILocation) {
 }
 
 export default function ProductCard() {
-  let product = useLoaderData() as PRODUCT
+  let product = useLoaderData() as productModel
 
   return (
     <div className="content productCard">

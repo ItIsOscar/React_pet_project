@@ -4,13 +4,14 @@ import ProductList from "../../subComponents/productList/productList";
 import Title from "../../subComponents/title/title";
 
 import { useLoaderData } from "react-router"
-import productsMock from "../../shared/mock/products/prouduct.methods.mock";
-import userMock from "../../shared/mock/users/user.methods.mock";
-import { PRODUCT } from "../../shared/mock/products/product.list.mock";
+import productsAPIMock from "../../shared/mock/prouduct.api.mock";
+import userAPIMock from "../../shared/mock/user.api.mock";
+import { productModel } from "../../shared/mock/db/product.list.mock";
 import { FormEvent } from "react";
+import { userModel } from "../../shared/mock/db/users.list.mock";
 
 interface IComp_basketList {
-  basketList: PRODUCT[]
+  basketList: productModel[]
 }
 
 function BasketCostList({basketList}: IComp_basketList) {
@@ -87,7 +88,6 @@ function Payment() {
 }
 
 function BuyPanel({basketList}: IComp_basketList) {
-
   return (
     <div className="panel_border">
       <div className="content buyPanel">
@@ -109,12 +109,8 @@ function Instruction() {
 }
 
 export default function Basket() {
-  const products = useLoaderData() as PRODUCT[]
+  const basketList = useLoaderData() as productModel[]
 
-  let basketList: PRODUCT[] = []
-  userMock.user.basket.forEach(inx => {
-    basketList.push(productsMock.products[inx])
-  })
   return (
     <>
       <div className="content">
