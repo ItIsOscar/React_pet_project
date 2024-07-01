@@ -2,13 +2,14 @@ import "./profile.scss"
 
 import ProductList from "../../subComponents/productList/productList";
 import Title from "../../subComponents/title/title";
-import { USER } from "../../shared/mock/users/users.list.mock";
-import productsMock from "../../shared/mock/products/prouduct.methods.mock";
+import { userModel } from "../../shared/mock/db/users.list.mock";
+import productsAPIMock from "../../shared/mock/prouduct.api.mock";
 import { useLoaderData } from "react-router";
-import { PRODUCT } from "../../shared/mock/products/product.list.mock";
+import { productModel } from "../../shared/mock/db/product.list.mock";
+import userAPIMock from "../../shared/mock/user.api.mock";
 
 interface IComp_user {
-  user: USER
+  user: userModel
 }
 
 function Description({user}: IComp_user) {
@@ -35,11 +36,7 @@ function UserStall({stall}: {
 
   let stallList: JSX.Element
   if(stall.length != 0) {
-    let stallProductList: PRODUCT[] = []
-
-    stall.forEach(id => id == productsMock.products[id].id && 
-      stallProductList.push(productsMock.products[id]))
-
+    let stallProductList: productModel[] = userAPIMock.getStall()
     stallList = <ProductList list={stallProductList} />
   } else {
     stallList = <span>Ничего не продает</span>
@@ -65,12 +62,12 @@ function UserComments() {
 }
 
 export default function Profile() {
-  const user: USER = useLoaderData() as USER
+  const user: userModel = useLoaderData() as userModel
 
   return (
     <main className="content">
       <Description user={user} />
-      <UserStall stall={user.goodsForSale}/>
+      <UserStall stall={user.stall}/>
       <UserComments />
     </main>
   )

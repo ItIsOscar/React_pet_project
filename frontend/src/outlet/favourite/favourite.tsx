@@ -3,9 +3,9 @@ import Title from "../../subComponents/title/title"
 
 import { useLoaderData } from "react-router"
 
-import userMock from "../../shared/mock/users/user.methods.mock"
-import productsMock from "../../shared/mock/products/prouduct.methods.mock"
-import { PRODUCT } from "../../shared/mock/products/product.list.mock"
+import userAPIMock from "../../shared/mock/user.api.mock"
+import productsAPIMock from "../../shared/mock/prouduct.api.mock"
+import { productModel } from "../../shared/mock/db/product.list.mock"
 
 interface ICheckBox {
   children: string
@@ -62,12 +62,10 @@ function Instruction() {
 }
 
 export default function Favourite() {
-  const products = useLoaderData() as PRODUCT[]
-
-  let favoriteList: PRODUCT[] = []
-  userMock.user.favourite.forEach(inx => {
-    favoriteList.push(productsMock.products[inx])
-  })
+  const {favoriteList, products} = useLoaderData() as {
+    favoriteList: productModel[]
+    products: productModel[]
+  }
 
   return (
     <div className="content">

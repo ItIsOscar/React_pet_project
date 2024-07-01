@@ -2,7 +2,7 @@ import "./filters.scss"
 import LineFilter_sellerType from "./lineFilter/lineFilter" 
 import filtersController from "./filters.controller"
 import { useEffect, useRef } from "react"
-import { filtersModel } from "../../../shared/mock/catalog/catalog.list.mock"
+import { filtersModel } from "../../../shared/mock/db/catalog.list.mock"
 import CatalogFilters from "./catalogFilters/CatalogFilters"
 
 interface IFilters {

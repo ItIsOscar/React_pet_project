@@ -3,10 +3,10 @@ import { useLoaderData } from "react-router"
 import Filters from "./filters/filters"
 import ProductList from "../../subComponents/productList/productList"
 import Banner from "./banner/banner"
-import { ICatalog } from "../../shared/mock/catalog/catalog.list.mock"
+import { catalogModel } from "../../shared/mock/db/catalog.list.mock"
 
 export default function Main() {
-  const catalog = useLoaderData() as ICatalog
+  const catalog = useLoaderData() as catalogModel
   
   return (
     <main className='content'>

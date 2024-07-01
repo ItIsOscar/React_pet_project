@@ -1,4 +1,4 @@
-import { COMMENT } from "../../shared/mock/products/product.list.mock"
+import { COMMENT } from "../../shared/mock/db/product.list.mock"
 import "./comment.scss"
 
 function User( { name }: {

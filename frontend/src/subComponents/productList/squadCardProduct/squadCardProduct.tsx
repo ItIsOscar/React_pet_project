@@ -1,10 +1,10 @@
 
 import { Link } from "react-router-dom"
 import "./squadCardProduct.scss"
-import { PRODUCT } from "../../../shared/mock/products/product.list.mock"
+import { productModel } from "../../../shared/mock/db/product.list.mock"
 
 export default function SquadCard({product} : {
-  product: PRODUCT
+  product: productModel
 }) {
   let characteristicsXJS = product.characteristics.map((el) => (
     <h3>{el.value}</h3>

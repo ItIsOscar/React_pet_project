@@ -8,12 +8,13 @@ import Favourite from "./outlet/favourite/favourite";
 import ProductCard from "./outlet/productCard/productCard";
 import Page404 from "./outlet/page404/page404";
 import Body from "./routerConnector";
-import catalogList, { ICatalog } from "./shared/mock/catalog/catalog.list.mock";
-import productsMock from "./shared/mock/products/prouduct.methods.mock";
-import userMock from "./shared/mock/users/user.methods.mock";
+import type { catalogModel } from "./shared/mock/db/catalog.list.mock";
+import productsAPIMock from "./shared/mock/prouduct.api.mock";
+import userAPIMock from "./shared/mock/user.api.mock";
 import Profile from "./outlet/profile/profile";
-import { PRODUCT } from "./shared/mock/products/product.list.mock";
-import { USER } from "./shared/mock/users/users.list.mock";
+import type { productModel } from "./shared/mock/db/product.list.mock";
+import type { userModel } from "./shared/mock/db/users.list.mock";
+import catalogAPIMock from "./shared/mock/catalog.api.mock";
 
 
 async function getData(URL: string) {
@@ -31,17 +32,20 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Main />,
-        loader: () =>  catalogList.main
+        loader: () =>  catalogAPIMock.getCatalogByName("main")
       },
       {
         path: "favourite",
         element: <Favourite />,
-        loader: () => getData("http://localhost:2000/api/products/getAll")
+        loader: () => ({
+          favouriteList: userAPIMock.getFavourite(),
+          products: productsAPIMock.getAllProducts()
+        })
       },
       {
         path: "basket",
         element: <Basket />,
-        loader: () => getData("http://localhost:2000/api/products/getAll"),
+        loader: () => userAPIMock.getBasket(),
         children: [
           {
             path: "entry",
@@ -56,17 +60,18 @@ const router = createBrowserRouter([
       },
       {
         path: "cardProduct/:id",
-        loader: ({params}): PRODUCT => productsMock.findProductsById(params.id!),
+        loader: ({ params }): productModel | null =>  productsAPIMock.getProductsByID(Number(params.id)),
         element: <ProductCard />
+        // errorElement: <NopeCard />
       },
       {
         path: "profile/:id",
-        loader: ({ params }): USER => userMock.user,
+        loader: ({ params }): userModel => userAPIMock.getAuthUser(),
         element: <Profile />
       },
       {
         path: "catalog/:type",
-        loader: ({ params }): ICatalog => catalogList[params.type!],
+        loader: ({ params }): catalogModel => catalogAPIMock.getCatalogByName(params.type!),
         element: <Main />
       }
     ]

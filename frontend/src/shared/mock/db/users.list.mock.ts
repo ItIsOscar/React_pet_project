@@ -1,23 +1,23 @@
-import { PRODUCT } from "../products/product.list.mock"
+import { productModel } from "../db/product.list.mock"
 
 type productId = number
-export type USER = {
+export type userModel = {
   name: string
   pic?: string
   number: string
   discription: string
-  goodsForSale: productId[]
+  stall: productId[]
   favourite: productId[] 
   basket: productId[] 
 }
 
-let USERS_LIST: USER[] = [
+let USERS_LIST: userModel[] = [
   {
     name: "USA Agenty",
     // pic: ,
     number: "+99804525409",
     discription: "РАвыаоыврыфпвравфыа",
-    goodsForSale: [],
+    stall: [],
     favourite: [],
     basket: [] 
     // products: products
@@ -27,7 +27,7 @@ let USERS_LIST: USER[] = [
     // pic: ,
     number: "+9989506409",
     discription: "РАвыаоыврыфпвравфыа",
-    goodsForSale: [],
+    stall: [],
     favourite: [] ,
     basket: []
     // products: null

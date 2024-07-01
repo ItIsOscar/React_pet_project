@@ -1,8 +1,8 @@
-import USERS_LIST, { USER } from "../users/users.list.mock"
+import USERS_LIST, { userModel } from "./users.list.mock"
 
 
-export type COMMENT = {
-  user: USER 
+export interface COMMENT {
+  user: userModel 
   grade: number
   content: string
   date: string
@@ -31,7 +31,7 @@ interface characteristics_interface {
   value: string
 }
 
-export type PRODUCT = {
+export interface productModel {
   id: number
   pic: string
   name: string
@@ -40,12 +40,12 @@ export type PRODUCT = {
     currency: string
   }
   description: string
-  seller: USER
+  seller: userModel
   characteristics: characteristics_interface[]
   comments: COMMENT[]
 }
 
-const PRODUCT_LIST: PRODUCT[] = [
+const PRODUCT_LIST: productModel[] = [
   {
     id: 0,
     pic: "https://avto-ravon.ru/wp-content/uploads/2022/02/Ravon-R2-1024x768-1-e1644232727494.jpg",
@@ -145,6 +145,4 @@ const PRODUCT_LIST: PRODUCT[] = [
     comments: comments
   }
 ]
-
-console.log(PRODUCT_LIST)
 export default PRODUCT_LIST
